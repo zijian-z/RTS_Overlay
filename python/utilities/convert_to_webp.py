@@ -29,9 +29,9 @@ def convert_to_webp(input_dir):
 def main():
     # Set up argument parser
     parser = argparse.ArgumentParser(
-        description='Convert .png and .jpg files to .webp format and remove original files.'
+        description='将 .png 和 .jpg 文件转换为 .webp 格式并删除原文件。'
     )
-    parser.add_argument('-i', '--input_dir', type=str, required=True, help='Input directory path')
+    parser.add_argument('-i', '--input_dir', type=str, required=True, help='输入目录路径')
     args = parser.parse_args()
 
     # Call the conversion function

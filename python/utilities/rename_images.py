@@ -56,15 +56,15 @@ def rename_files(
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Rename image files recursively to lowercase, remove specified patterns, and convert camel case to underscore.'
+        description='递归将图片文件名改为小写、移除指定模式，并把驼峰命名转换为下划线。'
     )
-    parser.add_argument('-i', '--input', type=str, required=True, help='Input folder path')
+    parser.add_argument('-i', '--input', type=str, required=True, help='输入文件夹路径')
     parser.add_argument(
         '-s',
         '--string_removal',
         type=str,
         default="_icon;_aoe2;_aoe4;_aomr;aomr_;_sc2;_wc3",
-        help='Semicolon-separated list of patterns to remove from filenames',
+        help='要从文件名中移除的模式列表，以分号分隔',
     )
 
     args = parser.parse_args()

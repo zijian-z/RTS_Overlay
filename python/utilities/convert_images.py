@@ -71,11 +71,11 @@ def convert_images(
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Convert images from one format to another and limit their size.')
-    parser.add_argument('-i', '--input', type=str, required=True, help='Input folder path')
-    parser.add_argument('-o', '--output', type=str, required=True, help='Output folder path')
+    parser = argparse.ArgumentParser(description='将图片从一种格式转换为另一种，并限制尺寸。')
+    parser.add_argument('-i', '--input', type=str, required=True, help='输入文件夹路径')
+    parser.add_argument('-o', '--output', type=str, required=True, help='输出文件夹路径')
     parser.add_argument(
-        '-m', '--max_size', type=int, default=-1, help='Maximum size along both width and height, negative to ignore'
+        '-m', '--max_size', type=int, default=-1, help='宽度和高度的最大尺寸，负值表示不限制'
     )
 
     args = parser.parse_args()

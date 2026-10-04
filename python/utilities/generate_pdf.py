@@ -299,13 +299,13 @@ def generate_build_order_pdf(json_content, game_dir, common_dir, output_pdf_path
 
 def parse_args() -> argparse.Namespace:
     """Parse the arguments for build order PDF generation."""
-    parser = argparse.ArgumentParser(description='Generate a build order PDF from a RTS Overlay JSON file.')
+    parser = argparse.ArgumentParser(description='从 RTS 浮层 JSON 文件生成建造顺序 PDF。')
     parser.add_argument(
-        '--json_file', type=Path, required=True, help='Path to the input JSON file (RTS Overlay format).'
+        '--json_file', type=Path, required=True, help='输入 JSON 文件路径（RTS 浮层格式）。'
     )
-    parser.add_argument('--game', type=str, required=True, help='Name of the game (e.g. aoe2).')
-    parser.add_argument('--assets_dir', type=Path, required=True, help='Path to the assets directory.')
-    parser.add_argument('--output_pdf', type=Path, required=True, help='Path to the output PDF file.')
+    parser.add_argument('--game', type=str, required=True, help='游戏名称（例如 aoe2）。')
+    parser.add_argument('--assets_dir', type=Path, required=True, help='资源目录路径。')
+    parser.add_argument('--output_pdf', type=Path, required=True, help='输出 PDF 文件路径。')
     return parser.parse_args()
 
 
