@@ -34,7 +34,7 @@ class AoE4OverlaySettings(RTSOverlaySettings):
         """Constructor"""
         super().__init__()
 
-        self.title: str = 'AoEIV Overlay'  # application title
+        self.title: str = '帝国时代IV 浮层'  # application title
 
         # layout
         self.layout = AoE4Layout()

@@ -106,7 +106,7 @@ function getBOStepAoE4(buildOrderData, copyStepID = -1) {
       villager_count: 'villager_count' in data ? data['villager_count'] : 0,
       age: 'age' in data ? data['age'] : 1,
       resources: 'resources' in data ? data['resources'] : { food: 0, wood: 0, gold: 0, stone: 0 },
-      notes: ['Note'],
+      notes: ['备注'],
     };
   } else {
     return {
@@ -114,7 +114,7 @@ function getBOStepAoE4(buildOrderData, copyStepID = -1) {
       villager_count: 0,
       age: 1,
       resources: { food: 0, wood: 0, gold: 0, stone: 0 },
-      notes: ['Note'],
+      notes: ['备注'],
     };
   }
 }
@@ -127,9 +127,9 @@ function getBOStepAoE4(buildOrderData, copyStepID = -1) {
 function getBOTemplateAoE4() {
   return {
     civilization: 'Abbasid Dynasty',
-    name: 'Build order name',
-    author: 'Author',
-    source: 'Source',
+    name: '建造顺序名称',
+    author: '作者',
+    source: '来源',
     build_order: [getBOStepAoE4(null)],
   };
 }
@@ -546,29 +546,29 @@ function getImagesAoE4() {
  */
 function getFactionsAoE4() {
   return {
-    'Abbasid Dynasty': ['ABB', 'CivIcon-AbbasidAoE4.webp'],
-    Ayyubids: ['AYY', 'CivIcon-AyyubidsAoE4.webp'],
-    Byzantines: ['BYZ', 'CivIcon-ByzantinesAoE4.webp'],
-    Chinese: ['CHI', 'CivIcon-ChineseAoE4.webp'],
-    'Delhi Sultanate': ['DEL', 'CivIcon-DelhiAoE4.webp'],
-    English: ['ENG', 'CivIcon-EnglishAoE4.webp'],
-    French: ['FRE', 'CivIcon-FrenchAoE4.webp'],
-    'Golden Horde': ['GOL', 'CivIcon-GoldenHordeAoE4.webp'],
-    'House of Lancaster': ['HOL', 'CivIcon-HouseofLancasterAoE4.webp'],
-    'Holy Roman Empire': ['HRE', 'CivIcon-HREAoE4.webp'],
-    Japanese: ['JAP', 'CivIcon-JapaneseAoE4.webp'],
-    "Jeanne d'Arc": ['JDA', 'CivIcon-JeanneDArcAoE4.webp'],
-    'Jin Dynasty': ['JIN', 'CivIcon-JinDynastyAoE4.webp'],
-    'Knights Templar': ['KTP', 'CivIcon-KnightsTemplarAoE4.webp'],
-    'Macedonian Dynasty': ['MAC', 'CivIcon-MacedonianDynastyAoE4.webp'],
-    Malians: ['MAL', 'CivIcon-MaliansAoE4.webp'],
-    Mongols: ['MON', 'CivIcon-MongolsAoE4.webp'],
-    'Order of the Dragon': ['OOD', 'CivIcon-OrderOfTheDragonAoE4.webp'],
-    Ottomans: ['OTT', 'CivIcon-OttomansAoE4.webp'],
-    Rus: ['RUS', 'CivIcon-RusAoE4.webp'],
-    'Sengoku Daimyo': ['SEN', 'CivIcon-SengokuDaimyoAoE4.webp'],
-    'Tughlaq Dynasty': ['TUG', 'CivIcon-TughlaqDynastyAoE4.webp'],
-    "Zhu Xi's Legacy": ['ZXL', 'CivIcon-ZhuXiLegacyAoE4.webp'],
+    'Abbasid Dynasty': ['阿拔斯王朝', 'CivIcon-AbbasidAoE4.webp'],
+    Ayyubids: ['阿尤布', 'CivIcon-AyyubidsAoE4.webp'],
+    Byzantines: ['拜占庭', 'CivIcon-ByzantinesAoE4.webp'],
+    Chinese: ['中国', 'CivIcon-ChineseAoE4.webp'],
+    'Delhi Sultanate': ['德里苏丹国', 'CivIcon-DelhiAoE4.webp'],
+    English: ['英格兰', 'CivIcon-EnglishAoE4.webp'],
+    French: ['法兰西', 'CivIcon-FrenchAoE4.webp'],
+    'Golden Horde': ['金帐汗国', 'CivIcon-GoldenHordeAoE4.webp'],
+    'House of Lancaster': ['兰开斯特王朝', 'CivIcon-HouseofLancasterAoE4.webp'],
+    'Holy Roman Empire': ['神圣罗马帝国', 'CivIcon-HREAoE4.webp'],
+    Japanese: ['日本', 'CivIcon-JapaneseAoE4.webp'],
+    "Jeanne d'Arc": ['圣女贞德', 'CivIcon-JeanneDArcAoE4.webp'],
+    'Jin Dynasty': ['金朝', 'CivIcon-JinDynastyAoE4.webp'],
+    'Knights Templar': ['圣殿骑士团', 'CivIcon-KnightsTemplarAoE4.webp'],
+    'Macedonian Dynasty': ['马其顿王朝', 'CivIcon-MacedonianDynastyAoE4.webp'],
+    Malians: ['马里', 'CivIcon-MaliansAoE4.webp'],
+    Mongols: ['蒙古', 'CivIcon-MongolsAoE4.webp'],
+    'Order of the Dragon': ['龙骑士团', 'CivIcon-OrderOfTheDragonAoE4.webp'],
+    Ottomans: ['奥斯曼', 'CivIcon-OttomansAoE4.webp'],
+    Rus: ['罗斯', 'CivIcon-RusAoE4.webp'],
+    'Sengoku Daimyo': ['战国大名', 'CivIcon-SengokuDaimyoAoE4.webp'],
+    'Tughlaq Dynasty': ['图格鲁克王朝', 'CivIcon-TughlaqDynastyAoE4.webp'],
+    "Zhu Xi's Legacy": ['朱熹遗产', 'CivIcon-ZhuXiLegacyAoE4.webp'],
   };
 }
 
@@ -588,10 +588,10 @@ function getFactionImagesFolderAoE4() {
  */
 function getInstructionsAoE4() {
   const externalBOLines = [
-    'In the <b>From external website</b> section, you can get many build orders with the requested format from',
-    '<b>AoE4 Guides</b> or <b>RTS Builds</b> (use the shortcuts on the left).',
-    '  - On <b>AoE4 Guides</b>, select a build order, click on the 3 dots (upper right corner), then on <b>Open in RTS Overlay</b>.',
-    '  - On <b>RTS Builds</b>, select a build order, then click on <b>Open in RTS Overlay</b>.',
+    '在<b>来自外部网站</b>区域，可以从以下网站获取符合格式的建造顺序：',
+    '<b>AoE4 Guides</b> 或 <b>RTS Builds</b>（使用左侧快捷方式）。',
+    '  - 在 <b>AoE4 Guides</b> 上选择建造顺序，点击右上角三个点，再点击 <b>Open in RTS Overlay</b>。',
+    '  - 在 <b>RTS Builds</b> 上选择建造顺序，然后点击 <b>Open in RTS Overlay</b>。',
   ];
   return contentArrayToDiv(getArrayInstructions(externalBOLines));
 }
@@ -620,7 +620,7 @@ function getVisualEditorAoE4() {
     new SinglePanelColumn('resources/builder', resource + 'repair.webp'),
   ];
 
-  columnsDescription[0].text = 'Age'; // age selection
+  columnsDescription[0].text = '时代'; // age selection
   columnsDescription[0].isSelectwidget = true; // age selection
   columnsDescription[1].italic = true; // time
   columnsDescription[1].optional = true; // time
@@ -632,14 +632,14 @@ function getVisualEditorAoE4() {
   columnsDescription[7].backgroundColor = [100, 100, 100]; // stone
   columnsDescription[8].optional = true; // builder
 
-  columnsDescription[1].tooltip = "step end time as 'x:yy'"; // time
-  columnsDescription[2].tooltip = 'population count'; // population count
-  columnsDescription[3].tooltip = 'number of villagers'; // villager count
-  columnsDescription[4].tooltip = 'villagers on food'; // food
-  columnsDescription[5].tooltip = 'villagers on wood'; // wood
-  columnsDescription[6].tooltip = 'villagers on gold'; // gold
-  columnsDescription[7].tooltip = 'villagers on stone'; // stone
-  columnsDescription[8].tooltip = 'number of builders'; // builder
+  columnsDescription[1].tooltip = '步骤结束时间，格式为 x:yy'; // time
+  columnsDescription[2].tooltip = '人口数量'; // population count
+  columnsDescription[3].tooltip = '村民数量'; // villager count
+  columnsDescription[4].tooltip = '采集食物的村民'; // food
+  columnsDescription[5].tooltip = '采集木材的村民'; // wood
+  columnsDescription[6].tooltip = '采集黄金的村民'; // gold
+  columnsDescription[7].tooltip = '采集石头的村民'; // stone
+  columnsDescription[8].tooltip = '建造者数量'; // builder
 
   // Show only positive characters for resources
   for (let i = 2; i <= 8; i++) {
@@ -650,11 +650,11 @@ function getVisualEditorAoE4() {
 
   // Age selection
   visualEditortableWidgetDescription = [
-    [-1, '?', 'age/age_unknown.webp'],
-    [1, 'DAR', 'age/age_1.webp'],
-    [2, 'FEU', 'age/age_2.webp'],
-    [3, 'CAS', 'age/age_3.webp'],
-    [4, 'IMP', 'age/age_4.webp'],
+    [-1, '未知', 'age/age_unknown.webp'],
+    [1, '黑暗', 'age/age_1.webp'],
+    [2, '封建', 'age/age_2.webp'],
+    [3, '城堡', 'age/age_3.webp'],
+    [4, '帝王', 'age/age_4.webp'],
   ];
 
   return getVisualEditorFromDescription(columnsDescription);
@@ -702,10 +702,10 @@ function openSinglePanelPageAoE4() {
     key: 'age', // Key to look for
     // Header before the current row
     before: {
-      1: getBOImageHTML(game + 'age/age_1.webp') + 'Dark Age',
-      2: getBOImageHTML(game + 'age/age_2.webp') + 'Feudal Age',
-      3: getBOImageHTML(game + 'age/age_3.webp') + 'Castle Age',
-      4: getBOImageHTML(game + 'age/age_4.webp') + 'Imperial Age',
+      1: getBOImageHTML(game + 'age/age_1.webp') + '黑暗时代',
+      2: getBOImageHTML(game + 'age/age_2.webp') + '封建时代',
+      3: getBOImageHTML(game + 'age/age_3.webp') + '城堡时代',
+      4: getBOImageHTML(game + 'age/age_4.webp') + '帝王时代',
     },
   };
   // Header for first line

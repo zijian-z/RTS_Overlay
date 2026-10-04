@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <script src="rts_overlay.js"></script>
 <script src="aoe2_overlay.js"></script>
@@ -11,7 +11,7 @@
 
 <head>
     <!-- Title and CSS -->
-    <title>RTS Overlay</title>
+    <title>RTS 浮层</title>
     <meta charset="utf-8">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="stylesheet" href="layout.css">
@@ -27,80 +27,78 @@
 
             <!-- FIRST COLUMN TOP ELEMENTS (ALWAYS VISIBLE) -->
 
-            <h2 id="rts_overlay_title">RTS Overlay</h2>
+            <h2 id="rts_overlay_title">RTS 浮层</h2>
 
             <!-- Game selection, demos & download -->
             <div class="config_row" id="game_selection">
                 <!-- Select game -->
                 <select id="select_game">
-                    <option selected="selected" value="aoe2">Age of Empires II</option>
-                    <option value="aoe4">Age of Empires IV</option>
-                    <option value="aom">Age of Mythology</option>
-                    <option value="sc2">StarCraft II</option>
-                    <option value="wc3">WarCraft III</option>
+                    <option selected="selected" value="aoe2">帝国时代II</option>
+                    <option value="aoe4">帝国时代IV</option>
+                    <option value="aom">神话时代</option>
+                    <option value="sc2">星际争霸2</option>
+                    <option value="wc3">魔兽争霸3</option>
                 </select>
                 <!-- Youtube demos -->
                 <form action="https://www.youtube.com/@craftysalamander4371" target="_blank" class="tooltip"><input
-                        class="button" type="submit" value="YouTube demos" />
+                        class="button" type="submit" value="YouTube 演示" />
                     <span class="tooltiptext_right">
-                        <div>YouTube videos showing</div>
-                        <div>how to use RTS Overlay.</div>
+                        <div>演示如何使用 RTS 浮层的</div>
+                        <div>YouTube 视频。</div>
                     </span>
                 </form>
                 <!-- Download RTS Overlay -->
                 <form action="https://github.com/CraftySalamander/RTS_Overlay/archive/refs/heads/master.zip"
-                    target="_blank" class="tooltip"><input class="button" type="submit" value="Local version" />
+                    target="_blank" class="tooltip"><input class="button" type="submit" value="本地版本" />
                     <span class="tooltiptext_right">
-                        <div>Download a local copy of RTS Overlay to improve the speed,</div>
-                        <div>work offline and customize your experience.</div>
-                        <div class="div_space">----- Solution 1 -----</div>
-                        <div>1. Click on this button to download the zip.</div>
-                        <div>2. Unzip it.</div>
-                        <div>3. Open <em>docs/index.html</em> with any web browser (Chrome, Edge...).</div>
-                        <div>4. (Optional) Customize the variables at the top of the files</div>
-                        <div><em>docs/layout.css</em> and <em>docs/rts_overlay.js</em>.</div>
-                        <div class="div_space">----- Solution 2 -----</div>
-                        <div>1. Click the installation button in the URL bar.</div>
-                        <div>2. Open the installed application (you can remove it like any other program).</div>
-                        <div>Note that this solution does not allow to customize the experience.</div>
-                        <div>Firefox users may need to install a browser add-on beforehand</div>
-                        <div>("Progressive Web Apps For Firefox" by Filip Štamcar).</div>
+                        <div>下载 RTS 浮层的本地副本，以加快速度、</div>
+                        <div>离线使用并自定义体验。</div>
+                        <div class="div_space">----- 方法 1 -----</div>
+                        <div>1. 点击此按钮下载 zip。</div>
+                        <div>2. 解压。</div>
+                        <div>3. 用任意浏览器（Chrome、Edge 等）打开 <em>docs/index.html</em>。</div>
+                        <div>4. （可选）修改以下文件顶部的变量：</div>
+                        <div><em>docs/layout.css</em> 和 <em>docs/rts_overlay.js</em>。</div>
+                        <div class="div_space">----- 方法 2 -----</div>
+                        <div>1. 点击地址栏中的安装按钮。</div>
+                        <div>2. 打开已安装的应用（可以像其他程序一样卸载）。</div>
+                        <div>此方法不能自定义体验。</div>
+                        <div>Firefox 用户可能需要事先安装浏览器扩展</div>
+                        <div>（Filip Štamcar 的 “Progressive Web Apps For Firefox”）。</div>
                     </span>
                 </form>
                 <!-- Download Exe app -->
                 <form
                     action="https://github.com/CraftySalamander/RTS_Overlay?tab=readme-ov-file#main-instructions-and-download"
-                    target="_blank" class="tooltip"><input class="button" type="submit" value="Download exe app" />
+                    target="_blank" class="tooltip"><input class="button" type="submit" value="下载 EXE 程序" />
                     <span class="tooltiptext_right">
-                        <div>Download the app as EXE (follow the instructions after clicking on the button).</div>
-                        <div class="div_space">There are two benefits compared to web-app:</div>
-                        <div>1. <i>Less intrusive</i>: No header, semi-transparent (opacity) and does not interfere with
-                            mouse clicks.</div>
-                        <div>2. <i>Global hotkeys</i>: Use hotkeys, even when the focus is on the game (and not on the
-                            overlay).</div>
+                        <div>以 EXE 形式下载程序（点击按钮后按说明操作）。</div>
+                        <div class="div_space">相比网页版有两点好处：</div>
+                        <div>1. <i>更不打扰</i>：没有标题栏，可半透明，并且不会挡住鼠标点击。</div>
+                        <div>2. <i>全局热键</i>：焦点在游戏上（而不在浮层上）时也能使用热键。</div>
                     </span>
                 </form>
             </div>
 
             <!-- Build order main configuration selection -->
-            <div id="bo_library" class="section_title"><span>Select build order</span></div>
+            <div id="bo_library" class="section_title"><span>选择建造顺序</span></div>
             <div id="main_configuration" class="config_row radio_selector"></div>
 
             <!-- FROM LIBRARY -->
 
-            <div id="from_library_text" class="section_title"><span>Filter by faction and select build order</span>
+            <div id="from_library_text" class="section_title"><span>按阵营筛选并选择建造顺序</span>
             </div>
 
             <!-- Selecting faction -->
             <div id="bo_faction_selection" class="config_row">
-                <input type="text" id="bo_faction_text" name="bo_faction_text" placeholder="keywords or space">
+                <input type="text" id="bo_faction_text" name="bo_faction_text" placeholder="关键词或空格">
                 <!-- Player faction -->
                 <select id="library_faction_select_widget"
                     onchange="updateImageFromSelect(this, 'library_faction_image', 25)"></select>
                 <div id="library_faction_select_tooltip" class="tooltip">
                     <div id="library_faction_image"></div>
                     <span class=" tooltiptext_right">
-                        <div>Select the player faction to filter the build orders.</div>
+                        <div>选择玩家阵营，以筛选建造顺序。</div>
                     </span>
                 </div>
                 <!-- Opponent faction -->
@@ -109,7 +107,7 @@
                 <div id="bo_opponent_faction_select_tooltip" class="tooltip">
                     <div id="bo_opponent_faction_image"></div>
                     <span class=" tooltiptext_right">
-                        <div>Select the opponent faction to filter the build orders.</div>
+                        <div>选择对手阵营，以筛选建造顺序。</div>
                     </span>
                 </div>
             </div>
@@ -121,126 +119,125 @@
             <div id="delete_bo_row" class="config_row">
                 <!-- Delete this build order -->
                 <div id="delete_current_bo" class="tooltip">
-                    <button type="button" class="button" onclick="deleteSelectedBO()">Delete this build order</button>
+                    <button type="button" class="button" onclick="deleteSelectedBO()">删除此建造顺序</button>
                     <span class=" tooltiptext_right">
-                        <div>Delete the selected build order from your local storage.</div>
+                        <div>从本地存储中删除当前选中的建造顺序。</div>
                     </span>
                 </div>
                 <!-- Delete all build orders -->
                 <div id="delete_all_bos" class="tooltip">
-                    <button type="button" class="button" onclick="deleteAllBOs()">Delete all build orders</button>
+                    <button type="button" class="button" onclick="deleteAllBOs()">删除全部建造顺序</button>
                     <span class=" tooltiptext_right">
-                        <div>Delete ALL build orders from this game from your local storage.</div>
+                        <div>从本地存储中删除本游戏的全部建造顺序。</div>
                     </span>
                 </div>
                 <!-- Export all build orders -->
                 <div id="export_all_bos" class="tooltip">
-                    <button type="button" class="button" onclick="exportAllBOs()">Export all build orders</button>
+                    <button type="button" class="button" onclick="exportAllBOs()">导出全部建造顺序</button>
                     <span class="tooltiptext_right">
-                        <div>Export all build orders from this game as JSON files.</div>
+                        <div>将本游戏的全部建造顺序导出为 JSON 文件。</div>
                     </span>
                 </div>
             </div>
 
             <!-- FROM EXTERNAL WEBSITE -->
 
-            <div id="external_bo_text" class="section_title"><span>Get build order from</span></div>
+            <div id="external_bo_text" class="section_title"><span>建造顺序来源</span></div>
             <div id="external_bo_webistes" class="config_row"></div>
 
             <!-- DESIGN YOUR OWN -->
 
-            <div id="design_bo_text" class="section_title"><span>Design helper features</span></div>
+            <div id="design_bo_text" class="section_title"><span>设计辅助</span></div>
 
             <div id="design_bo_row_main" class="config_row">
                 <!-- Reset build order -->
                 <div id="reset_bo" class="tooltip">
-                    <button type="button" class="button" onclick="resetBuildOrder()">Reset build order</button>
+                    <button type="button" class="button" onclick="resetBuildOrder()">重置建造顺序</button>
                     <span class="tooltiptext_right">
-                        <div>Reset the build order on the right panel to a minimal template.</div>
+                        <div>将右侧面板中的建造顺序重置为最小模板。</div>
                     </span>
                 </div>
                 <!-- Add build order step -->
                 <div id="add_bo_step" class="tooltip">
-                    <button type="button" class="button" onclick="addBuildOrderStep()">Add step</button>
+                    <button type="button" class="button" onclick="addBuildOrderStep()">添加步骤</button>
                     <span class="tooltiptext_right">
-                        <div>Add one step to the build order.</div>
+                        <div>为建造顺序添加一个步骤。</div>
                     </span>
                 </div>
                 <!-- Format build order -->
                 <div id="format_bo" class="tooltip">
-                    <button type="button" class="button" onclick="formatBuildOrder()">Format</button>
+                    <button type="button" class="button" onclick="formatBuildOrder()">格式化</button>
                     <span class="tooltiptext_right">
-                        <div>Format the build order panel on the right to a proper JSON format.</div>
+                        <div>将右侧建造顺序面板格式化为规范的 JSON。</div>
                     </span>
                 </div>
 
                 <!-- Evaluate time -->
                 <div id="evaluate_time" class="tooltip">
-                    <button type="button" class="button" onclick="evaluateTime()">Evaluate time</button>
+                    <button type="button" class="button" onclick="evaluateTime()">估算时间</button>
                     <span class="tooltiptext_right">
-                        <div>Automatically evaluate the timing of each step.</div>
-                        <div>This will enable the timing feature when clicking on 'Display overlay'.</div>
-                        <div>Note that these timing evalutations are not always perfect and need to be validated.</div>
-                        <div>You can add a timing offset with the widget on the right of this button.</div>
+                        <div>自动估算每个步骤的时间。</div>
+                        <div>估算后，点击“显示浮层”即可使用计时功能。</div>
+                        <div>这些时间估算并不总是准确，需要自行核对。</div>
+                        <div>可以用此按钮右侧的控件为全部估算加上时间偏移。</div>
                     </span>
                 </div>
                 <!-- Time evaluation offset -->
                 <div id="time_offset_widget" class="tooltip">
                     <input type="number" class="bo_panel_number_select" id="time_offset" name="time_offset" value="0">
                     <span class="tooltiptext_right">
-                        <div>Timing offset (in seconds) to add to all timing evaluations from 'Evaluate time'.</div>
+                        <div>加到“估算时间”全部结果上的时间偏移（秒）。</div>
                     </span>
                 </div>
             </div>
 
             <!-- SAVE BUILD ORDER -->
 
-            <div id="save_bo_text" class="section_title"><span>Save build order</span></div>
+            <div id="save_bo_text" class="section_title"><span>保存建造顺序</span></div>
 
             <div id="save_row" class="config_row">
                 <!-- Add to library -->
                 <div id="add_to_library" class="tooltip">
-                    <button type="button" class="button" onclick="addToLocalStorage()">Add to library</button>
+                    <button type="button" class="button" onclick="addToLocalStorage()">加入库</button>
                     <span class=" tooltiptext_right">
-                        <div>Save the build order in the library (local storage).</div>
-                        <div>This build order will be saved using the name defined in the design panel.</div>
+                        <div>把建造顺序保存到库（本地存储）。</div>
+                        <div>将使用设计面板中填写的名称保存。</div>
                     </span>
                 </div>
                 <!-- Export to JSON file -->
                 <div id="export_file" class="tooltip">
-                    <button type="button" class="button" onclick="saveBOToFile()">Export file</button>
+                    <button type="button" class="button" onclick="saveBOToFile()">导出文件</button>
                     <span class="tooltiptext_right">
-                        <div>Export the content of the right panel in a JSON file (using name below).</div>
-                        <div>To reload the corresponding build order, drag and drop this file on the right panel</div>
-                        <div>(not available by default on all browsers).</div>
+                        <div>把右侧面板内容导出为 JSON 文件（使用下方名称）。</div>
+                        <div>要重新载入，把该文件拖放到右侧面板上</div>
+                        <div>（并非所有浏览器默认都支持）。</div>
                     </span>
                 </div>
                 <!-- Copy to clipboard -->
                 <div id="copy_to_clipboard" class="tooltip">
-                    <button type="button" class="button" onclick="copyBOToClipboard()">Copy to
-                        clipboard</button>
+                    <button type="button" class="button" onclick="copyBOToClipboard()">复制到剪贴板</button>
                     <span class="tooltiptext_right">
-                        <div>Copy the content of the right panel to the clipboard.</div>
+                        <div>把右侧面板内容复制到剪贴板。</div>
                     </span>
                 </div>
             </div>
 
             <!-- DISPLAY OVERLAY -->
 
-            <div id="adapt_display_overlay" class="section_title"><span>Adapt and display overlay</span></div>
+            <div id="adapt_display_overlay" class="section_title"><span>调整并显示浮层</span></div>
 
             <div id="bo_panel_display_buttons" class="config_row">
                 <!-- Display overlay -->
                 <div id="diplay_overlay" class="tooltip">
-                    <button type="button" class="button" onclick="displayOverlay()">Display overlay</button>
+                    <button type="button" class="button" onclick="displayOverlay()">显示浮层</button>
                     <span id="diplay_overlay_tooltiptext" class="tooltiptext_right"></span>
                 </div>
 
                 <!-- Open full page -->
                 <div id="single_panel_page" class="tooltip">
-                    <button type="button" class="button" onclick="openSinglePanelPage()">Open full page</button>
+                    <button type="button" class="button" onclick="openSinglePanelPage()">打开完整页面</button>
                     <span class="tooltiptext_right">
-                        <div>Open a new page and display the full build order in a single panel.</div>
+                        <div>打开新页面，在单个面板中显示完整建造顺序。</div>
                     </span>
                 </div>
             </div>
@@ -250,27 +247,27 @@
                 <input id="bo_fontsize" class="bo_panel_number_select" type="number" min="0.1" max="3.0" value="1.0"
                     step="0.1">
                 <div class="tooltip">
-                    <div id="bo_fontsize_value" class="configuration_text">font size</div>
+                    <div id="bo_fontsize_value" class="configuration_text">字体大小</div>
                     <span class="tooltiptext_right">
-                        <div>Font size for the build order panel text.</div>
+                        <div>建造顺序面板文字的字体大小。</div>
                     </span>
                 </div>
 
                 <input id="bo_images_size" class="bo_panel_number_select" type="number" min="5" max="60" value="25"
                     step="1">
                 <div class="tooltip">
-                    <div id="bo_images_size_value" class="configuration_text">images size</div>
+                    <div id="bo_images_size_value" class="configuration_text">图片大小</div>
                     <span class="tooltiptext_right">
-                        <div>Sizes of the images in the build order panel.</div>
+                        <div>建造顺序面板中图片的大小。</div>
                     </span>
                 </div>
 
                 <!-- Background overlay color selection -->
                 <input type="color" id="bo_background_color" value="#343a40" oninput="updateBackgroundColor()">
                 <div class="tooltip">
-                    <div id="bo_background_color_value" class="configuration_text">background color</div>
+                    <div id="bo_background_color_value" class="configuration_text">背景颜色</div>
                     <span class="tooltiptext_right">
-                        <div>Background color for the build order panel.</div>
+                        <div>建造顺序面板的背景颜色。</div>
                     </span>
                 </div>
             </div>
@@ -284,16 +281,16 @@
                             <span class="slider round"></span>
                         </label>
                         <span class="tooltiptext_right">
-                            <div>Choose between Picture-in-Picture (floating window) or classic Window Overlay.</div>
-                            <div>Picture-in-Picture automatically keeps the overlay on top of the game.</div>
-                            <div>However, Picture-in-Picture can have auto-resize issues, especially for the timer.
+                            <div>在画中画（浮动窗口）和经典窗口浮层之间选择。</div>
+                            <div>画中画会自动把浮层保持在游戏之上。</div>
+                            <div>但画中画的自动调整大小可能出问题，计时器尤其如此。
                             </div>
-                            <div>In contrast, the classic Window Overlay has usually a better resizing behavior but
+                            <div>经典窗口浮层的大小调整通常更稳定，
                             </div>
-                            <div>requires a third-party app (e.g. PowerToys) to stay on top of the game.</div>
+                            <div>但需要第三方程序（例如 PowerToys）才能保持在游戏之上。</div>
                         </span>
                     </div>
-                    <div id="pip_window_selection_text" class="configuration_text">Picture-in-Picture</div>
+                    <div id="pip_window_selection_text" class="configuration_text">画中画</div>
                 </div>
 
                 <!-- Automatic overlay resize -->
@@ -304,13 +301,12 @@
                             <span class="slider round"></span>
                         </label>
                         <span class="tooltiptext_right">
-                            <div>When 'Auto resize' is enabled, the overlay window will resize automatically to fit its
-                                content.</div>
-                            <div>Beware that this feature does not always work, especially for Picture-in-Picture mode.
+                            <div>启用“自动调整大小”后，浮层窗口会按内容自动改变大小。</div>
+                            <div>此功能并非总是有效，画中画模式尤其如此。
                             </div>
                         </span>
                     </div>
-                    <div id="auto_resize_selection_text" class="configuration_text">Auto resize</div>
+                    <div id="auto_resize_selection_text" class="configuration_text">自动调整大小</div>
                 </div>
 
                 <!-- Overlay on the left/right side of the screen (only shown if Window Overlay is selected) -->
@@ -321,20 +317,19 @@
                             <span class="slider round"></span>
                         </label>
                         <span class="tooltiptext_right">
-                            <div>When updating the overlay to a new step (with 'Auto resize' activated), its size will
-                                be</div>
-                            <div>automatically adjusted to its content. Its position will be updated to keep one of its
+                            <div>切换到新步骤时（已启用“自动调整大小”），窗口大小会
                             </div>
-                            <div>top corners at the same position.</div>
-                            <div>Choose 'Overlay on the right' to fix the right border position</div>
-                            <div>and place the overlay on the right of your screen while playing.</div>
-                            <div>Selecting 'Overlay on the left' is ideal to keep the overlay on the left of the screen.
+                            <div>按内容自动调整。位置会更新，以保持其中一个
                             </div>
-                            <div>Note that the overlay on the right does not usually work for the Picture-in-Picture
-                                mode.</div>
+                            <div>顶角不动。</div>
+                            <div>选择“浮层靠右”可固定右边缘，</div>
+                            <div>游戏时把浮层放在屏幕右侧。</div>
+                            <div>选择“浮层靠左”适合把浮层放在屏幕左侧。
+                            </div>
+                            <div>靠右放置通常不适用于画中画模式。</div>
                         </span>
                     </div>
-                    <div id="side_selection_text" class="configuration_text">Overlay on the left</div>
+                    <div id="side_selection_text" class="configuration_text">浮层靠左</div>
                 </div>
             </div>
 
@@ -369,15 +364,15 @@
 
             <!-- Choose the category of image to add -->
             <div id="image_category_line" class="config_row">
-                <b>Image selection</b>
+                <b>图片选择</b>
                 <select id="image_class_selection"></select>
             </div>
 
             <!-- Copy image field -->
-            <input type="text" id="image_copy" name="image_copy" placeholder="selected image name" readonly>
-            <div id="drag_and_drop_note">Drag and Drop images from below to the visual editor notes above.
-                <br>Alternatively, write <strong>@</strong> (above), followed by the image name to search.
-                <br>Then, use the arrow keys and Enter to select the image.
+            <input type="text" id="image_copy" name="image_copy" placeholder="所选图片名称" readonly>
+            <div id="drag_and_drop_note">把下方图片拖放到上方可视化编辑器的备注中。
+                <br>也可以在上方输入 <strong>@</strong>，再输入要搜索的图片名称。
+                <br>然后用方向键和 Enter 选择图片。
             </div>
 
             <!-- Images selection display -->
@@ -387,10 +382,10 @@
 
     <!-- Footer -->
     <footer>
-        <p>A project initiated by <b>CraftySalamander</b>. Contribute on <a
-                href="https://github.com/CraftySalamander/RTS_Overlay" target="_blank">Github</a> (check <a
+        <p>本项目由 <b>CraftySalamander</b> 发起。欢迎在 <a
+                href="https://github.com/CraftySalamander/RTS_Overlay" target="_blank">Github</a> 上贡献（请查看 <a
                 href="https://github.com/CraftySalamander/RTS_Overlay/blob/master/Readme.md"
-                target="_blank">Readme</a>).</p>
+                target="_blank">说明</a>）。</p>
     </footer>
 </body>
 

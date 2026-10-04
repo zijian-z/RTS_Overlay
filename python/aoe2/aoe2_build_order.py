@@ -48,7 +48,7 @@ def check_valid_aoe2_build_order(data: dict, bo_name_msg: bool = False) -> (bool
         return check_valid_steps(data, bo_name_str, fields)
 
     except KeyError as err:
-        return False, bo_name_str + f'Wrong JSON key: {err}.'
+        return False, bo_name_str + f'错误的 JSON 键：{err}。'
 
     except Exception as err:
         return False, bo_name_str + str(err)

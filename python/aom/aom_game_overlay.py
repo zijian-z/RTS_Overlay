@@ -75,7 +75,7 @@ class AoMGameOverlay(RTSGameOverlay):
             self.major_god_combo_ids.append(major_god_name)
         self.major_god_select.setIconSize(QSize(major_god_select_size[0], major_god_select_size[1]))
         self.major_god_select.setStyleSheet(f'QWidget{{ {style_description} }};')
-        self.major_god_select.setToolTip('select major god')
+        self.major_god_select.setToolTip('选择主神')
         self.major_god_select.setFont(QFont(layout.font_police, layout.font_size))
         self.major_god_select.adjustSize()
 

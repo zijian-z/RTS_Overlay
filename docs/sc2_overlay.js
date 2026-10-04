@@ -93,10 +93,10 @@ function getBOStepSC2(buildOrderData, copyStepID = -1) {
       supply: 'supply' in data ? data['supply'] : -1,
       minerals: 'minerals' in data ? data['minerals'] : -1,
       vespene_gas: 'vespene_gas' in data ? data['vespene_gas'] : -1,
-      notes: ['Note'],
+      notes: ['备注'],
     };
   } else {
-    return { supply: -1, minerals: -1, vespene_gas: -1, notes: ['Note'] };
+    return { supply: -1, minerals: -1, vespene_gas: -1, notes: ['备注'] };
   }
 }
 
@@ -109,10 +109,10 @@ function getBOTemplateSC2() {
   return {
     race: 'Terran',
     opponent_race: 'Any',
-    name: 'Build order name',
+    name: '建造顺序名称',
     patch: 'x.y.z',
-    author: 'Author',
-    source: 'Source',
+    author: '作者',
+    source: '来源',
     build_order: [getBOStepSC2(null)],
   };
 }
@@ -162,10 +162,10 @@ function getImagesSC2() {
  */
 function getFactionsSC2() {
   return {
-    Terran: ['TER', 'TerranIcon.webp'],
-    Protoss: ['PRT', 'ProtossIcon.webp'],
-    Zerg: ['ZRG', 'ZergIcon.webp'],
-    Any: ['ANY', 'AnyRaceIcon.webp'],
+    Terran: ['人类', 'TerranIcon.webp'],
+    Protoss: ['星灵', 'ProtossIcon.webp'],
+    Zerg: ['异虫', 'ZergIcon.webp'],
+    Any: ['任意', 'AnyRaceIcon.webp'],
   };
 }
 
@@ -212,10 +212,10 @@ function getVisualEditorSC2() {
   columnsDescription[2].backgroundColor = [77, 103, 136]; // minerals
   columnsDescription[3].backgroundColor = [67, 96, 57]; // vespene gas
 
-  columnsDescription[0].tooltip = "step time as 'x:yy'"; // time
-  columnsDescription[1].tooltip = 'supply count'; // supply
-  columnsDescription[2].tooltip = 'workers on minerals'; // minerals
-  columnsDescription[3].tooltip = 'workers on vespene gas'; // vespene gas
+  columnsDescription[0].tooltip = '步骤时间，格式为 x:yy'; // time
+  columnsDescription[1].tooltip = '人口（供给）数量'; // supply
+  columnsDescription[2].tooltip = '采集矿物的工人'; // minerals
+  columnsDescription[3].tooltip = '采集高能瓦斯的工人'; // vespene gas
 
   // Show only positive characters
   for (let i = 1; i <= 3; i++) {

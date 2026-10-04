@@ -34,7 +34,7 @@ class AoMOverlaySettings(RTSOverlaySettings):
         """Constructor"""
         super().__init__()
 
-        self.title: str = 'AoM Overlay'  # application title
+        self.title: str = '神话时代浮层'  # application title
 
         # layout
         self.layout = AoMLayout()

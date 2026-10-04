@@ -55,32 +55,32 @@ class HotkeysWindow(QMainWindow):
 
         # text for the manual describing how to set up the hotkeys
         manual_text: str = (
-            'Set hotkey sequence or \'Esc\' to cancel. Click on \'Update hotkeys\' to confirm your choice.'
-            '\n\nClick on the mouse checkbox to consider \'L\' as left click, \'R\' as right click, '
-            '\'M\' as middle button,\n\'1\' as first extra button and \'2\' as second extra button.'
-            '\nSo, the input \'Ctrl+1\' with mouse option means Ctrl + first extra button.'
-            '\n\nNote that hotkeys are ignored while this window is open.'
+            '设置热键组合，或按 Esc 取消。点击“更新热键”确认。'
+            '\n\n勾选鼠标复选框后，L 表示左键，R 表示右键，'
+            'M 表示中键，\n1 表示第一个侧键，2 表示第二个侧键。'
+            '\n因此，勾选鼠标选项时输入 Ctrl+1 表示 Ctrl + 第一个侧键。'
+            '\n\n此窗口打开时，热键不会生效。'
         )
 
         # description for the different hotkeys
         if timer_flag:  # including timer hotkeys
             self.descriptions = {
-                'next_panel': 'Move to next panel :',
-                'show_hide': 'Show/hide overlay :',
-                'build_order_previous_step': 'Previous step / Timer -1 sec :',
-                'build_order_next_step': 'Next step / Timer +1 sec :',
-                'switch_timer_manual': 'Switch BO timer/manual :',
-                'start_timer': 'Start BO timer :',
-                'stop_timer': 'Stop BO timer :',
-                'start_stop_timer': 'Start/stop BO timer :',
-                'reset_timer': 'Reset BO timer :',
+                'next_panel': '切换到下一面板：',
+                'show_hide': '显示/隐藏浮层：',
+                'build_order_previous_step': '上一步 / 计时器 -1 秒：',
+                'build_order_next_step': '下一步 / 计时器 +1 秒：',
+                'switch_timer_manual': '切换计时/手动：',
+                'start_timer': '开始计时：',
+                'stop_timer': '停止计时：',
+                'start_stop_timer': '开始/停止计时：',
+                'reset_timer': '重置计时器：',
             }
         else:  # without timer hotkeys
             self.descriptions = {
-                'next_panel': 'Move to next panel :',
-                'show_hide': 'Show/hide overlay :',
-                'build_order_previous_step': 'Go to previous BO step :',
-                'build_order_next_step': 'Go to next BO step :',
+                'next_panel': '切换到下一面板：',
+                'show_hide': '显示/隐藏浮层：',
+                'build_order_previous_step': '上一个建造顺序步骤：',
+                'build_order_next_step': '下一个建造顺序步骤：',
             }
 
         for description in self.descriptions:
@@ -122,7 +122,7 @@ class HotkeysWindow(QMainWindow):
             count += 1
 
         # button to open settings folder
-        self.folder_button = QPushButton('Open configuration folder', self)
+        self.folder_button = QPushButton('打开配置文件夹', self)
         self.folder_button.setFont(QFont(self.font_police, self.font_size))
         self.folder_button.setStyleSheet(self.style_button)
         self.folder_button.adjustSize()
@@ -159,7 +159,7 @@ class HotkeysWindow(QMainWindow):
             hotkey.setStyleSheet(self.style_sequence_edit)
             hotkey.resize(self.edit_width, self.edit_height)
             hotkey.move(x_hotkey, y_hotkeys + count * line_height)
-            hotkey.setToolTip('Click to edit, then input hotkey combination.')
+            hotkey.setToolTip('点击后编辑，再输入热键组合。')
             hotkey.show()
             self.hotkeys[key] = hotkey
 
@@ -182,7 +182,7 @@ class HotkeysWindow(QMainWindow):
             count += 1
 
         # send update button
-        self.update_button = QPushButton("Update hotkeys", self)
+        self.update_button = QPushButton('更新热键', self)
         self.update_button.setFont(QFont(self.font_police, self.font_size))
         self.update_button.setStyleSheet(self.style_button)
         self.update_button.adjustSize()
@@ -192,7 +192,7 @@ class HotkeysWindow(QMainWindow):
         max_width = max(max_width, widget_x_end(self.update_button))
 
         # window properties and show
-        self.setWindowTitle('Configuration')
+        self.setWindowTitle('配置')
         self.setWindowIcon(QIcon(game_icon))
         if panel_settings.stay_on_top:
             self.setWindowFlags(Qt.WindowStaysOnTopHint)  # window staying on top

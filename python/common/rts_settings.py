@@ -53,7 +53,7 @@ class RTSLayout(SettingsSubclass):
         self.border_size: int = 15  # size of the borders
         self.vertical_spacing: int = 10  # vertical spacing
         self.horizontal_spacing: int = 6  # horizontal spacing
-        self.font_police: str = 'Arial'  # font police type
+        self.font_police: str = 'Microsoft YaHei'  # font police type
         self.font_size: int = 11  # font size (selected value for 'font_size_limits')
         self.scaling: int = 100  # scaling value [%] (selected value for 'scaling_list')
         self.color_default: list = [255, 255, 255]  # default text RGB color for the font
@@ -69,7 +69,7 @@ class RTSHotkeysConfigurationLayout(SettingsSubclass):
     def __init__(self):
         """Constructor"""
         self.stay_on_top: bool = False  # True to always stay on top of other windows
-        self.font_police: str = 'Arial'  # font police type
+        self.font_police: str = 'Microsoft YaHei'  # font police type
         self.font_size: int = 11  # font size
         self.color_font: list = [255, 255, 255]  # color of the font
         self.color_background: list = [30, 30, 30]  # color of the background

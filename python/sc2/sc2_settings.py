@@ -43,7 +43,7 @@ class SC2OverlaySettings(RTSOverlaySettings):
         """Constructor"""
         super().__init__()
 
-        self.title: str = 'SC2 Overlay'  # application title
+        self.title: str = '星际争霸2 浮层'  # application title
 
         # layout
         self.layout = SC2Layout()

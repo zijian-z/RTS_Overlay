@@ -121,14 +121,14 @@ function getBOStepAoE2(buildOrderData, copyStepID = -1) {
       villager_count: 'villager_count' in data ? data['villager_count'] : 0,
       age: 'age' in data ? data['age'] : 1,
       resources: 'resources' in data ? data['resources'] : { wood: 0, food: 0, gold: 0, stone: 0 },
-      notes: ['Note'],
+      notes: ['备注'],
     };
   } else {
     return {
       villager_count: 0,
       age: 1,
       resources: { wood: 0, food: 0, gold: 0, stone: 0 },
-      notes: ['Note'],
+      notes: ['备注'],
     };
   }
 }
@@ -140,10 +140,10 @@ function getBOStepAoE2(buildOrderData, copyStepID = -1) {
  */
 function getBOTemplateAoE2() {
   return {
-    name: 'Build order name',
+    name: '建造顺序名称',
     civilization: 'Generic',
-    author: 'Author',
-    source: 'Source',
+    author: '作者',
+    source: '来源',
     build_order: [getBOStepAoE2(null)],
   };
 }
@@ -483,64 +483,64 @@ function getImagesAoE2() {
 function getFactionsAoE2() {
   // AoE2 civilization Icons (with 3 letters shortcut)
   return {
-    All: ['ALL', 'check_status_black.webp'],
-    Generic: ['GEN', 'question_mark_black.webp'],
-    Armenians: ['ARM', 'CivIcon-Armenians.webp'],
-    Aztecs: ['AZT', 'CivIcon-Aztecs.webp'],
-    Bengalis: ['BEN', 'CivIcon-Bengalis.webp'],
-    Berbers: ['BER', 'CivIcon-Berbers.webp'],
-    Bohemians: ['BOH', 'CivIcon-Bohemians.webp'],
-    Britons: ['BRI', 'CivIcon-Britons.webp'],
-    Burgundians: ['BUG', 'CivIcon-Burgundians.webp'],
-    Bulgarians: ['BUL', 'CivIcon-Bulgarians.webp'],
-    Burmese: ['BUM', 'CivIcon-Burmese.webp'],
-    Byzantines: ['BYZ', 'CivIcon-Byzantines.webp'],
-    Celts: ['CEL', 'CivIcon-Celts.webp'],
-    Chinese: ['CHI', 'CivIcon-Chinese.webp'],
-    Cumans: ['CUM', 'CivIcon-Cumans.webp'],
-    Danes: ['DAN', 'CivIcon-Danes.webp'],
-    Dravidians: ['DRA', 'CivIcon-Dravidians.webp'],
-    Ethiopians: ['ETH', 'CivIcon-Ethiopians.webp'],
-    Franks: ['FRA', 'CivIcon-Franks.webp'],
-    Georgians: ['GEO', 'CivIcon-Georgians.webp'],
-    Goths: ['GOT', 'CivIcon-Goths.webp'],
-    Gurjaras: ['GUR', 'CivIcon-Gurjaras.webp'],
-    Hindustanis: ['HIN', 'CivIcon-Hindustanis.webp'],
-    Huns: ['HUN', 'CivIcon-Huns.webp'],
-    Incas: ['INC', 'CivIcon-Incas.webp'],
-    Italians: ['ITA', 'CivIcon-Italians.webp'],
-    Japanese: ['JAP', 'CivIcon-Japanese.webp'],
-    Jurchens: ['JUR', 'CivIcon-Jurchens.webp'],
-    Khitans: ['KHI', 'CivIcon-Khitans.webp'],
-    Khmer: ['KHM', 'CivIcon-Khmer.webp'],
-    Koreans: ['KOR', 'CivIcon-Koreans.webp'],
-    Lithuanians: ['LIT', 'CivIcon-Lithuanians.webp'],
-    Magyars: ['MAG', 'CivIcon-Magyars.webp'],
-    Mapuche: ['MAP', 'CivIcon-Mapuche.webp'],
-    Mayans: ['MAY', 'CivIcon-Mayans.webp'],
-    Malay: ['MLA', 'CivIcon-Malay.webp'],
-    Malians: ['MLI', 'CivIcon-Malians.webp'],
-    Mongols: ['MON', 'CivIcon-Mongols.webp'],
-    Muisca: ['MUI', 'CivIcon-Muisca.webp'],
-    Persians: ['PER', 'CivIcon-Persians.webp'],
-    Poles: ['POL', 'CivIcon-Poles.webp'],
-    Portuguese: ['POR', 'CivIcon-Portuguese.webp'],
-    Romans: ['ROM', 'CivIcon-Romans.webp'],
-    Saracens: ['SAR', 'CivIcon-Saracens.webp'],
-    Saxons: ['SAX', 'CivIcon-Saxons.webp'],
-    Shu: ['SHU', 'CivIcon-Shu.webp'],
-    Sicilians: ['SIC', 'CivIcon-Sicilians.webp'],
-    Slavs: ['SLA', 'CivIcon-Slavs.webp'],
-    Spanish: ['SPA', 'CivIcon-Spanish.webp'],
-    Tatars: ['TAT', 'CivIcon-Tatars.webp'],
-    Teutons: ['TEU', 'CivIcon-Teutons.webp'],
-    Tupi: ['TUP', 'CivIcon-Tupi.webp'],
-    Turks: ['TUR', 'CivIcon-Turks.webp'],
-    Varangians: ['VAR', 'CivIcon-Varangians.webp'],
-    Vietnamese: ['VIE', 'CivIcon-Vietnamese.webp'],
-    Vikings: ['VIK', 'CivIcon-Vikings.webp'],
-    Wei: ['WEI', 'CivIcon-Wei.webp'],
-    Wu: ['WU', 'CivIcon-Wu.webp'],
+    All: ['全部', 'check_status_black.webp'],
+    Generic: ['通用', 'question_mark_black.webp'],
+    Armenians: ['亚美尼亚', 'CivIcon-Armenians.webp'],
+    Aztecs: ['阿兹特克', 'CivIcon-Aztecs.webp'],
+    Bengalis: ['孟加拉', 'CivIcon-Bengalis.webp'],
+    Berbers: ['柏柏尔', 'CivIcon-Berbers.webp'],
+    Bohemians: ['波希米亚', 'CivIcon-Bohemians.webp'],
+    Britons: ['不列颠', 'CivIcon-Britons.webp'],
+    Burgundians: ['勃艮第', 'CivIcon-Burgundians.webp'],
+    Bulgarians: ['保加利亚', 'CivIcon-Bulgarians.webp'],
+    Burmese: ['缅甸', 'CivIcon-Burmese.webp'],
+    Byzantines: ['拜占庭', 'CivIcon-Byzantines.webp'],
+    Celts: ['凯尔特', 'CivIcon-Celts.webp'],
+    Chinese: ['中国', 'CivIcon-Chinese.webp'],
+    Cumans: ['库曼', 'CivIcon-Cumans.webp'],
+    Danes: ['丹麦', 'CivIcon-Danes.webp'],
+    Dravidians: ['达罗毗荼', 'CivIcon-Dravidians.webp'],
+    Ethiopians: ['埃塞俄比亚', 'CivIcon-Ethiopians.webp'],
+    Franks: ['法兰克', 'CivIcon-Franks.webp'],
+    Georgians: ['格鲁吉亚', 'CivIcon-Georgians.webp'],
+    Goths: ['哥特', 'CivIcon-Goths.webp'],
+    Gurjaras: ['古吉拉特', 'CivIcon-Gurjaras.webp'],
+    Hindustanis: ['印度斯坦', 'CivIcon-Hindustanis.webp'],
+    Huns: ['匈奴', 'CivIcon-Huns.webp'],
+    Incas: ['印加', 'CivIcon-Incas.webp'],
+    Italians: ['意大利', 'CivIcon-Italians.webp'],
+    Japanese: ['日本', 'CivIcon-Japanese.webp'],
+    Jurchens: ['女真', 'CivIcon-Jurchens.webp'],
+    Khitans: ['契丹', 'CivIcon-Khitans.webp'],
+    Khmer: ['高棉', 'CivIcon-Khmer.webp'],
+    Koreans: ['高丽', 'CivIcon-Koreans.webp'],
+    Lithuanians: ['立陶宛', 'CivIcon-Lithuanians.webp'],
+    Magyars: ['马扎尔', 'CivIcon-Magyars.webp'],
+    Mapuche: ['马普切', 'CivIcon-Mapuche.webp'],
+    Mayans: ['玛雅', 'CivIcon-Mayans.webp'],
+    Malay: ['马来', 'CivIcon-Malay.webp'],
+    Malians: ['马里', 'CivIcon-Malians.webp'],
+    Mongols: ['蒙古', 'CivIcon-Mongols.webp'],
+    Muisca: ['穆伊斯卡', 'CivIcon-Muisca.webp'],
+    Persians: ['波斯', 'CivIcon-Persians.webp'],
+    Poles: ['波兰', 'CivIcon-Poles.webp'],
+    Portuguese: ['葡萄牙', 'CivIcon-Portuguese.webp'],
+    Romans: ['罗马', 'CivIcon-Romans.webp'],
+    Saracens: ['萨拉森', 'CivIcon-Saracens.webp'],
+    Saxons: ['撒克逊', 'CivIcon-Saxons.webp'],
+    Shu: ['蜀', 'CivIcon-Shu.webp'],
+    Sicilians: ['西西里', 'CivIcon-Sicilians.webp'],
+    Slavs: ['斯拉夫', 'CivIcon-Slavs.webp'],
+    Spanish: ['西班牙', 'CivIcon-Spanish.webp'],
+    Tatars: ['鞑靼', 'CivIcon-Tatars.webp'],
+    Teutons: ['条顿', 'CivIcon-Teutons.webp'],
+    Tupi: ['图皮', 'CivIcon-Tupi.webp'],
+    Turks: ['突厥', 'CivIcon-Turks.webp'],
+    Varangians: ['瓦兰吉', 'CivIcon-Varangians.webp'],
+    Vietnamese: ['越南', 'CivIcon-Vietnamese.webp'],
+    Vikings: ['维京', 'CivIcon-Vikings.webp'],
+    Wei: ['魏', 'CivIcon-Wei.webp'],
+    Wu: ['吴', 'CivIcon-Wu.webp'],
   };
 }
 
@@ -560,10 +560,10 @@ function getFactionImagesFolderAoE2() {
  */
 function getInstructionsAoE2() {
   const externalBOLines = [
-    'In the <b>From external website</b> section, you can get many build orders with the requested format from',
-    '<b>Build Order Guide</b> or <b>RTS Builds</b> (you can use the shortcut on the left).',
-    '  - On <b>Build Order Guide</b>, select a build order, click on <b>Export for RTS</b>, then paste the content in the text panel below.',
-    '  - On <b>RTS Builds</b>, select a build order and click on <b>Open in RTS Overlay</b>.',
+    '在<b>来自外部网站</b>区域，可以从以下网站获取符合格式的建造顺序：',
+    '<b>Build Order Guide</b> 或 <b>RTS Builds</b>（可使用左侧快捷方式）。',
+    '  - 在 <b>Build Order Guide</b> 上选择建造顺序，点击 <b>Export for RTS</b>，再把内容粘贴到下方面板。',
+    '  - 在 <b>RTS Builds</b> 上选择建造顺序，点击 <b>Open in RTS Overlay</b>。',
   ];
   return contentArrayToDiv(getArrayInstructions(externalBOLines));
 }
@@ -591,7 +591,7 @@ function getVisualEditorAoE2() {
     new SinglePanelColumn('resources/builder', resource + 'Aoe2de_hammer.webp'),
   ];
 
-  columnsDescription[0].text = 'Age'; // age selection
+  columnsDescription[0].text = '时代'; // age selection
   columnsDescription[0].isSelectwidget = true; // age selection
   columnsDescription[1].italic = true; // time
   columnsDescription[1].optional = true; // time
@@ -603,13 +603,13 @@ function getVisualEditorAoE2() {
   columnsDescription[6].backgroundColor = [100, 100, 100]; // stone
   columnsDescription[7].optional = true; // builder
 
-  columnsDescription[1].tooltip = "step end time as 'x:yy'"; // time
-  columnsDescription[2].tooltip = 'number of villagers'; // villager count
-  columnsDescription[3].tooltip = 'villagers on wood'; // wood
-  columnsDescription[4].tooltip = 'villagers on food'; // food
-  columnsDescription[5].tooltip = 'villagers on gold'; // gold
-  columnsDescription[6].tooltip = 'villagers on stone'; // stone
-  columnsDescription[7].tooltip = 'number of builders'; // builder
+  columnsDescription[1].tooltip = '步骤结束时间，格式为 x:yy'; // time
+  columnsDescription[2].tooltip = '村民数量'; // villager count
+  columnsDescription[3].tooltip = '采集木材的村民'; // wood
+  columnsDescription[4].tooltip = '采集食物的村民'; // food
+  columnsDescription[5].tooltip = '采集黄金的村民'; // gold
+  columnsDescription[6].tooltip = '采集石头的村民'; // stone
+  columnsDescription[7].tooltip = '建造者数量'; // builder
 
   // Show only positive characters for resources
   for (let i = 2; i <= 7; i++) {
@@ -620,11 +620,11 @@ function getVisualEditorAoE2() {
 
   // Age selection
   visualEditortableWidgetDescription = [
-    [-1, '?', 'age/AgeUnknown.webp'],
-    [1, 'DAR', 'age/DarkAgeIconDE_alpha.webp'],
-    [2, 'FEU', 'age/FeudalAgeIconDE_alpha.webp'],
-    [3, 'CAS', 'age/CastleAgeIconDE_alpha.webp'],
-    [4, 'IMP', 'age/ImperialAgeIconDE_alpha.webp'],
+    [-1, '未知', 'age/AgeUnknown.webp'],
+    [1, '黑暗', 'age/DarkAgeIconDE_alpha.webp'],
+    [2, '封建', 'age/FeudalAgeIconDE_alpha.webp'],
+    [3, '城堡', 'age/CastleAgeIconDE_alpha.webp'],
+    [4, '帝王', 'age/ImperialAgeIconDE_alpha.webp'],
   ];
 
   return getVisualEditorFromDescription(columnsDescription);
@@ -671,16 +671,16 @@ function openSinglePanelPageAoE2() {
     key: 'age', // Key to look for
     // Header before the current row
     before: {
-      2: topArrow + 'Aging up to Feudal Age',
-      3: topArrow + 'Aging up to Castle Age',
-      4: topArrow + 'Aging up to Imperial Age',
+      2: topArrow + '升至封建时代',
+      3: topArrow + '升至城堡时代',
+      4: topArrow + '升至帝王时代',
     },
     // Header after the current row
     after: {
-      1: getBOImageHTML(game + 'age/DarkAgeIconDE_alpha.webp') + 'Dark Age',
-      2: getBOImageHTML(game + 'age/FeudalAgeIconDE_alpha.webp') + 'Feudal Age',
-      3: getBOImageHTML(game + 'age/CastleAgeIconDE_alpha.webp') + 'Castle Age',
-      4: getBOImageHTML(game + 'age/ImperialAgeIconDE_alpha.webp') + 'Imperial Age',
+      1: getBOImageHTML(game + 'age/DarkAgeIconDE_alpha.webp') + '黑暗时代',
+      2: getBOImageHTML(game + 'age/FeudalAgeIconDE_alpha.webp') + '封建时代',
+      3: getBOImageHTML(game + 'age/CastleAgeIconDE_alpha.webp') + '城堡时代',
+      4: getBOImageHTML(game + 'age/ImperialAgeIconDE_alpha.webp') + '帝王时代',
     },
   };
   // Header for first line

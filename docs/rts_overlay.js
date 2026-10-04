@@ -52,44 +52,44 @@ const OVERLAY_KEYBOARD_SHORTCUTS = {
 // [website name, website address, instructions.]
 const EXTERNAL_BO_WEBSITES = {
   aoe2: [
-    ['Build Order Guide', 'https://www.buildorderguide.com', "Click on 'Export for RTS'."],
+    ['Build Order Guide', 'https://www.buildorderguide.com', '点击 “Export for RTS”。'],
     [
       'RTS Builds',
       'https://craftysalamander.github.io/rtsbuilds?gameId=aoe2',
-      "Click on 'Open in RTS Overlay'.",
+      '点击 “Open in RTS Overlay”。',
     ],
   ],
   aoe4: [
     [
       'AoE4 Guides',
       'https://aoe4guides.com/',
-      "Click on the 3 dots (upper right corner), then on the 'Open in RTS Overlay'.",
+      '点击右上角三个点，再点击 “Open in RTS Overlay”。',
     ],
     [
       'RTS Builds',
       'https://craftysalamander.github.io/rtsbuilds?gameId=aoe4',
-      "Click on 'Open in RTS Overlay'.",
+      '点击 “Open in RTS Overlay”。',
     ],
   ],
   aom: [
     [
       'RTS Builds',
       'https://craftysalamander.github.io/rtsbuilds?gameId=aom',
-      "Click on 'Open in RTS Overlay'.",
+      '点击 “Open in RTS Overlay”。',
     ],
   ],
   sc2: [
     [
       'RTS Builds',
       'https://craftysalamander.github.io/rtsbuilds?gameId=sc2',
-      "Click on 'Open in RTS Overlay'.",
+      '点击 “Open in RTS Overlay”。',
     ],
   ],
   wc3: [
     [
       'RTS Builds',
       'https://craftysalamander.github.io/rtsbuilds?gameId=wc3',
-      "Click on 'Open in RTS Overlay'.",
+      '点击 “Open in RTS Overlay”。',
     ],
   ],
 };
@@ -154,7 +154,7 @@ const ERROR_IMAGE = 'assets/common/icon/question_mark.webp';
 // -- Variables -- //
 
 let gameName = 'aoe2'; // Name of the game (i.e. its picture folder)
-let gameFullName = 'Age of Empires II'; // Full name of the game
+let gameFullName = '帝国时代II'; // Full name of the game
 let mainConfiguration = 'library'; // Main configuration mode
 // Library with all the stored build orders for the current game
 let library = {};
@@ -629,7 +629,7 @@ function noteToTextImages(note, imageHeight = -1) {
 function getBOPanelContent(overlayFlag, BOStepID) {
   // Check if BO is valid
   if (!checkValidBO()) {
-    return '<nobr><div class="bo_line">The build order is not valid.</div></nobr>';
+    return '<nobr><div class="bo_line">建造顺序无效。</div></nobr>';
   }
 
   // Prepare HTML content for the BO body
@@ -649,7 +649,7 @@ function getBOPanelContent(overlayFlag, BOStepID) {
   htmlString += '<div id="step_time_indication">';
   htmlString += timingFlag
     ? buildOrderTimer['last_time_label']
-    : 'Step: ' + (BOStepID + 1) + '/' + stepCount;
+    : '步骤：' + (BOStepID + 1) + '/' + stepCount;
   htmlString += '</div>';
 
   // Previous or next step
@@ -679,7 +679,7 @@ function getBOPanelContent(overlayFlag, BOStepID) {
       actionButtonHeight,
       'startStopBuildOrderTimer',
       null,
-      'start/stop',
+      '开始/停止',
       'start_stop_timer'
     );
     htmlString += getImageHTML(
@@ -687,7 +687,7 @@ function getBOPanelContent(overlayFlag, BOStepID) {
       actionButtonHeight,
       'resetBuildOrderTimer',
       null,
-      'reset timer'
+      '重置计时器'
     );
   }
 
@@ -698,7 +698,7 @@ function getBOPanelContent(overlayFlag, BOStepID) {
       actionButtonHeight,
       'switchBuildOrderTimerManual',
       null,
-      'timer/manual'
+      '计时/手动'
     );
   }
   htmlString += '</div></nobr>';
@@ -1031,7 +1031,7 @@ function updateDataBO() {
     }
   } catch (e) {
     validBO = false;
-    BOValidityMessage = 'Invalid build order: Could not parse the JSON format.';
+    BOValidityMessage = '建造顺序无效：无法解析 JSON 格式。';
   }
 
   if (validBO) {
@@ -1040,8 +1040,8 @@ function updateDataBO() {
     const checkTimerImage =
       commonPicturesFolder + (validTimer ? 'icon/valid_timing.webp' : 'icon/invalid_timing.webp');
     const checkTimerHint = validTimer
-      ? 'This build order is compatible with the timer feature.'
-      : "All steps should have a valid timing (as 'x:yy') in ascending order to use the timer feature.";
+      ? '此建造顺序可以使用计时功能。'
+      : '要使用计时功能，每一步都需要有效且递增的时间（格式为 x:yy）。';
     const checkTimerFeature = getImageHTML(
       checkTimerImage,
       TIMER_CHECK_HEIGHT,
@@ -1058,11 +1058,11 @@ function updateDataBO() {
       // Radio buttons to create
       const visuEditor =
         '<input type="radio" id="editor_visu" name="config_editor" value="visu" onclick="activateVisualEditor()">' +
-        '<label for="editor_visu" class="button">Visual editor</label>';
+        '<label for="editor_visu" class="button">可视化编辑器</label>';
 
       const rawEditor =
         '<input type="radio" id="editor_raw" name="config_editor" value="raw" onclick="activateRawEditor()" checked>' +
-        '<label for="editor_raw" class="button">Raw editor</label>';
+        '<label for="editor_raw" class="button">原始编辑器</label>';
 
       document.getElementById('bo_design_indication').innerHTML =
         visuEditor + rawEditor + checkTimerFeature;
@@ -1234,7 +1234,7 @@ function initSelectFaction(
     console.assert(shortAndImage.length === 2, "'shortAndImage' should have a size of 2");
 
     let option = document.createElement('option');
-    option.text = displayShortName ? shortAndImage[0] : factionName;
+    option.text = shortAndImage[0];
     option.value = factionName;
     option.setAttribute('associated_image', factionImagesFolder + '/' + shortAndImage[1]);
     selectWidget.add(option);
@@ -1329,6 +1329,263 @@ function initLibraryFactionSelection() {
 }
 
 /**
+ * User-facing label for an image-category folder.
+ * The folder name itself stays an asset path / data id.
+ *
+ * @param {string} folder  Asset sub-folder name.
+ *
+ * @returns Chinese label, or the folder name with underscores shown as spaces.
+ */
+function imageCategoryLabel(folder) {
+  const labels = {
+    abilities: '技能',
+    ability_chinese: '中国技能',
+    ability_golden_horde: '金帐汗国技能',
+    ability_jeanne: '圣女贞德技能',
+    ability_jin: '金朝技能',
+    ability_lancaster: '兰开斯特技能',
+    ability_macedonian: '马其顿技能',
+    ability_sengoku: '战国大名技能',
+    ability_templar: '圣殿骑士技能',
+    ability_tughluq: '图格鲁克技能',
+    action_button: '操作按钮',
+    age: '时代',
+    animal: '动物',
+    archery_range: '射箭场',
+    armory: '军械库',
+    atlanteans_building: '亚特兰蒂斯建筑',
+    atlanteans_civilian: '亚特兰蒂斯平民',
+    atlanteans_hero: '亚特兰蒂斯英雄',
+    atlanteans_human: '亚特兰蒂斯人类单位',
+    atlanteans_minor_god: '亚特兰蒂斯次神',
+    atlanteans_myth: '亚特兰蒂斯神话单位',
+    atlanteans_power: '亚特兰蒂斯神力',
+    atlanteans_ship: '亚特兰蒂斯舰船',
+    atlanteans_siege: '亚特兰蒂斯攻城器',
+    atlanteans_tech: '亚特兰蒂斯科技',
+    aztecs_building: '阿兹特克建筑',
+    aztecs_civilian: '阿兹特克平民',
+    aztecs_hero: '阿兹特克英雄',
+    aztecs_human: '阿兹特克人类单位',
+    aztecs_minor_god: '阿兹特克次神',
+    aztecs_myth: '阿兹特克神话单位',
+    aztecs_power: '阿兹特克神力',
+    aztecs_ship: '阿兹特克舰船',
+    aztecs_tech: '阿兹特克科技',
+    barracks: '兵营',
+    blacksmith: '铁匠铺',
+    building_byzantines: '拜占庭建筑',
+    building_chinese: '中国建筑',
+    building_defensive: '防御建筑',
+    building_economy: '经济建筑',
+    building_golden_horde: '金帐汗国建筑',
+    building_japanese: '日本建筑',
+    building_jin: '金朝建筑',
+    building_lancaster: '兰开斯特建筑',
+    building_macedonian: '马其顿建筑',
+    building_malians: '马里建筑',
+    building_military: '军事建筑',
+    building_mongols: '蒙古建筑',
+    building_ottomans: '奥斯曼建筑',
+    building_poi: '兴趣点建筑',
+    building_religious: '宗教建筑',
+    building_rus: '罗斯建筑',
+    building_sengoku: '战国大名建筑',
+    building_technology: '科技建筑',
+    building_tughluq: '图格鲁克建筑',
+    castle: '城堡',
+    chinese_blessing: '中国祝福',
+    chinese_building: '中国建筑',
+    chinese_civilian: '中国平民',
+    chinese_hero: '中国英雄',
+    chinese_human: '中国人类单位',
+    chinese_minor_god: '中国次神',
+    chinese_myth: '中国神话单位',
+    chinese_power: '中国神力',
+    chinese_ship: '中国舰船',
+    chinese_siege: '中国攻城器',
+    chinese_tech: '中国科技',
+    civilization: '文明',
+    civilization_flag: '文明旗帜',
+    defensive: '防御',
+    defensive_structures: '防御建筑',
+    dock: '码头',
+    economy: '经济',
+    egyptians_building: '埃及建筑',
+    egyptians_civilian: '埃及平民',
+    egyptians_hero: '埃及英雄',
+    egyptians_human: '埃及人类单位',
+    egyptians_minor_god: '埃及次神',
+    egyptians_myth: '埃及神话单位',
+    egyptians_power: '埃及神力',
+    egyptians_ship: '埃及舰船',
+    egyptians_siege: '埃及攻城器',
+    egyptians_tech: '埃及科技',
+    greeks_building: '希腊建筑',
+    greeks_civilian: '希腊平民',
+    greeks_hero: '希腊英雄',
+    greeks_human: '希腊人类单位',
+    greeks_minor_god: '希腊次神',
+    greeks_myth: '希腊神话单位',
+    greeks_power: '希腊神力',
+    greeks_ship: '希腊舰船',
+    greeks_siege: '希腊攻城器',
+    greeks_tech: '希腊科技',
+    hero: '英雄',
+    human_building: '人族建筑',
+    human_hero: '人族英雄',
+    human_items: '人族物品',
+    human_special: '人族特殊',
+    human_unit: '人族单位',
+    human_upgrades: '人族升级',
+    icon: '图标',
+    japanese_building: '日本建筑',
+    japanese_civilian: '日本平民',
+    japanese_hero: '日本英雄',
+    japanese_human: '日本人类单位',
+    japanese_minor_god: '日本次神',
+    japanese_myth: '日本神话单位',
+    japanese_power: '日本神力',
+    japanese_ship: '日本舰船',
+    japanese_siege: '日本攻城器',
+    japanese_tech: '日本科技',
+    landmark_abbasid: '阿拔斯地标',
+    landmark_byzantines: '拜占庭地标',
+    landmark_chinese: '中国地标',
+    landmark_delhi: '德里地标',
+    landmark_english: '英格兰地标',
+    landmark_french: '法兰西地标',
+    landmark_golden_horde: '金帐汗国地标',
+    landmark_hre: '神圣罗马帝国地标',
+    landmark_japanese: '日本地标',
+    landmark_jin: '金朝地标',
+    landmark_lancaster: '兰开斯特地标',
+    landmark_malians: '马里地标',
+    landmark_mongols: '蒙古地标',
+    landmark_ottomans: '奥斯曼地标',
+    landmark_rus: '罗斯地标',
+    landmark_sengoku: '战国大名地标',
+    landmark_templar: '圣殿骑士地标',
+    landmark_zhuxi: '朱熹遗产地标',
+    lumber_camp: '伐木场',
+    major_god: '主神',
+    market: '市场',
+    mill: '磨坊',
+    mining_camp: '采矿营地',
+    monastery: '修道院',
+    neutral_shop: '中立商店',
+    night_elf_building: '暗夜精灵建筑',
+    night_elf_hero: '暗夜精灵英雄',
+    night_elf_items: '暗夜精灵物品',
+    night_elf_special: '暗夜精灵特殊',
+    night_elf_unit: '暗夜精灵单位',
+    night_elf_upgrades: '暗夜精灵升级',
+    norse_building: '北欧建筑',
+    norse_civilian: '北欧平民',
+    norse_hero: '北欧英雄',
+    norse_human: '北欧人类单位',
+    norse_minor_god: '北欧次神',
+    norse_myth: '北欧神话单位',
+    norse_power: '北欧神力',
+    norse_ship: '北欧舰船',
+    norse_siege: '北欧攻城器',
+    norse_tech: '北欧科技',
+    orc_building: '兽族建筑',
+    orc_hero: '兽族英雄',
+    orc_items: '兽族物品',
+    orc_special: '兽族特殊',
+    orc_unit: '兽族单位',
+    orc_upgrades: '兽族升级',
+    other: '其他',
+    protoss_buildings: '星灵建筑',
+    protoss_techs: '星灵科技',
+    protoss_units: '星灵单位',
+    race: '种族',
+    race_icon: '种族图标',
+    resource: '资源',
+    siege_workshop: '攻城器制造所',
+    stable: '马厩',
+    tech_military: '军事科技',
+    technology_abbasid: '阿拔斯科技',
+    technology_ayyubids: '阿尤布科技',
+    technology_byzantines: '拜占庭科技',
+    technology_chinese: '中国科技',
+    technology_defensive: '防御科技',
+    technology_delhi: '德里科技',
+    technology_dragon: '龙骑士团科技',
+    technology_economy: '经济科技',
+    technology_english: '英格兰科技',
+    technology_french: '法兰西科技',
+    technology_golden_horde: '金帐汗国科技',
+    technology_hre: '神圣罗马帝国科技',
+    technology_japanese: '日本科技',
+    technology_jeanne: '圣女贞德科技',
+    technology_jin: '金朝科技',
+    technology_lancaster: '兰开斯特科技',
+    technology_macedonian: '马其顿科技',
+    technology_malians: '马里科技',
+    technology_military: '军事科技',
+    technology_mongols: '蒙古科技',
+    technology_naval: '海军科技',
+    technology_ottomans: '奥斯曼科技',
+    technology_religious: '宗教科技',
+    technology_rus: '罗斯科技',
+    technology_sengoku: '战国大名科技',
+    technology_templar: '圣殿骑士科技',
+    technology_tughluq: '图格鲁克科技',
+    technology_units: '单位科技',
+    technology_zhuxi: '朱熹遗产科技',
+    temple: '神殿',
+    terran_buildings: '人类建筑',
+    terran_techs: '人类科技',
+    terran_units: '人类单位',
+    town_center: '城镇中心',
+    undead_building: '亡灵建筑',
+    undead_hero: '亡灵英雄',
+    undead_items: '亡灵物品',
+    undead_special: '亡灵特殊',
+    undead_unit: '亡灵单位',
+    undead_upgrades: '亡灵升级',
+    unique_unit: '特殊单位',
+    unit_abbasid: '阿拔斯单位',
+    unit_ayyubids: '阿尤布单位',
+    unit_byzantines: '拜占庭单位',
+    unit_cavalry: '骑兵',
+    unit_chinese: '中国单位',
+    unit_delhi: '德里单位',
+    unit_dragon: '龙骑士团单位',
+    unit_english: '英格兰单位',
+    unit_events: '事件单位',
+    unit_french: '法兰西单位',
+    unit_golden_horde: '金帐汗国单位',
+    unit_hre: '神圣罗马帝国单位',
+    unit_infantry: '步兵',
+    unit_japanese: '日本单位',
+    unit_jeanne: '圣女贞德单位',
+    unit_jin: '金朝单位',
+    unit_lancaster: '兰开斯特单位',
+    unit_macedonian: '马其顿单位',
+    unit_malians: '马里单位',
+    unit_mongols: '蒙古单位',
+    unit_ottomans: '奥斯曼单位',
+    unit_religious: '宗教单位',
+    unit_rus: '罗斯单位',
+    unit_sengoku: '战国大名单位',
+    unit_ship: '舰船',
+    unit_siege: '攻城器',
+    unit_templar: '圣殿骑士单位',
+    unit_tughluq: '图格鲁克单位',
+    unit_worker: '工人',
+    unit_zhuxi: '朱熹遗产单位',
+    university: '大学',
+    zerg_buildings: '异虫建筑',
+    zerg_techs: '异虫科技',
+    zerg_units: '异虫单位',
+  };
+  return labels[folder] || folder.replaceAll('_', ' ');
+}
+
+/**
  * Initialize the images selection utility.
  */
 function initImagesSelection() {
@@ -1337,8 +1594,8 @@ function initImagesSelection() {
 
   // Special case to select the faction
   let selectFactionOption = document.createElement('option');
-  selectFactionOption.text = 'select faction';
-  selectFactionOption.value = selectFactionOption.text;
+  selectFactionOption.text = '选择阵营';
+  selectFactionOption.value = 'select faction';
   imageSelectWidget.add(selectFactionOption);
 
   // First process the images of 'imagesGame', then of 'imagesCommon'.
@@ -1348,7 +1605,7 @@ function initImagesSelection() {
     // Loop on the sub-folders with the images
     for (const subFolder of Object.keys(mainFolder)) {
       let option = document.createElement('option');
-      option.text = subFolder.replaceAll('_', ' ');
+      option.text = imageCategoryLabel(subFolder);
       option.value = subFolder;
       imageSelectWidget.add(option);
     }
@@ -1365,17 +1622,17 @@ function updateMainConfigSelection() {
   const fromLibrary =
     '<input type="radio" id="config_library" name="main_config_radios" value="library"' +
     ' checked onchange="mainConfigUpdate(this)">' +
-    '<label for="config_library" class="button">From library</label>';
+    '<label for="config_library" class="button">来自库</label>';
 
   const fromWebsite =
     '<input type="radio" id="config_website" name="main_config_radios" value="website"' +
     ' onchange="mainConfigUpdate(this)">' +
-    '<label for="config_website" class="button">From external website</label>';
+    '<label for="config_website" class="button">来自外部网站</label>';
 
   const designYourOwn =
     '<input type="radio" id="config_design" name="main_config_radios" value="design"' +
     ' onchange="mainConfigUpdate(this)">' +
-    '<label for="config_design" class="button">Design your own</label>';
+    '<label for="config_design" class="button">自行设计</label>';
 
   // Add or not the website section (checking if there is at least one website).
   const fullContent =
@@ -1445,12 +1702,12 @@ function updateExternalBOWebsites() {
         linksContent += '<input class="button" type="submit" value="' + entry[0] + '" />';
         linksContent += '<span class="tooltiptext_right">';
         linksContent +=
-          '<div>External build order website providing build orders with RTS Overlay format.</div>';
+          '<div>提供 RTS 浮层格式建造顺序的外部网站。</div>';
         linksContent += '-----';
-        linksContent += '<div>To import the requested build order:</div>';
-        linksContent += '<div>1. Select the requested build order on ' + entry[0] + '.</div>';
+        linksContent += '<div>导入所需建造顺序：</div>';
+        linksContent += '<div>1. 在 ' + entry[0] + ' 上选择建造顺序。</div>';
         linksContent += '<div>2. ' + entry[2] + '</div>';
-        linksContent += '<div>3. Paste the clipboard content on the right panel.</div>';
+        linksContent += '<div>3. 把剪贴板内容粘贴到右侧面板。</div>';
         linksContent += '</span>';
         linksContent += '</a>';
       }
@@ -1466,23 +1723,23 @@ function updateExternalBOWebsites() {
  */
 function getDiplayOverlayTooltiptext() {
   let htmlString = `
-<div>Display the overlay in a separate window, to be used while in-game.</div>
+<div>在单独窗口中显示浮层，供游戏中使用。</div>
 <div>-----</div>
-<div>In Picture-in-Picture mode (see below), the overlay should stay on top of your game.</div>
-<div>In Classical window mode, the overlay will not stay by default on top of your game.</div>
-<div>To keep it on top of your game while playing, use an <em>Always On Top</em> application.</div>
-<div>For Windows, <em>PowerToys</em> is a good solution.</div>
-<div>It is free, developed by Microsoft and available on the <em>Microsoft Store</em>.</div>
+<div>画中画模式（见下方）下，浮层应保持在游戏之上。</div>
+<div>经典窗口模式下，浮层默认不会保持在游戏之上。</div>
+<div>游戏时若要让它保持在最前，请使用<em>始终置顶</em>程序。</div>
+<div>在 Windows 上，<em>PowerToys</em> 是一个合适的选择。</div>
+<div>它免费，由微软开发，可在 <em>Microsoft Store</em> 获取。</div>
 <div>-----</div>
-<div>Use the left and right arrow buttons to select the build order step.</div>
-<div>In case valid timings are available for all steps, click on the feather/hourglass</div>
-<div>button to switch to the timer mode (updating the steps with a timer).</div>
-<div>In timer mode, you can increment/decrement the clock by 1 second with the</div>
-<div>arrow buttons, start/stop the timer and set it back to <em>0:00</em>.</div>`;
+<div>用左右箭头按钮选择建造顺序的步骤。</div>
+<div>如果每一步都有有效时间，点击羽毛/沙漏</div>
+<div>按钮可切换到计时模式（用计时器推进步骤）。</div>
+<div>计时模式下，可用箭头按钮把时钟增减 1 秒，</div>
+<div>开始或停止计时，并重置为 <em>0:00</em>。</div>`;
 
   htmlString += `
 <div>-----</div>
-<div>The following hotkeys are available (can be customized in <em>docs/rts_overlay.js</em>):</div>`;
+<div>可用以下热键（可在 <em>docs/rts_overlay.js</em> 中自定义）：</div>`;
 
   let atLeastOneHotkey = false;
   for (const [key, value] of Object.entries(OVERLAY_KEYBOARD_SHORTCUTS)) {
@@ -1490,25 +1747,25 @@ function getDiplayOverlayTooltiptext() {
       let description = '';
       switch (key) {
         case 'build_order_previous_step':
-          description = 'Previous step / Timer -1 sec';
+          description = '上一步 / 计时器 -1 秒';
           break;
         case 'build_order_next_step':
-          description = 'Next step / Timer +1 sec';
+          description = '下一步 / 计时器 +1 秒';
           break;
         case 'switch_timer_manual':
-          description = 'Switch build order timer/manual';
+          description = '切换建造顺序的计时/手动';
           break;
         case 'start_timer':
-          description = 'Start build order timer';
+          description = '开始建造顺序计时';
           break;
         case 'stop_timer':
-          description = 'Stop build order timer';
+          description = '停止建造顺序计时';
           break;
         case 'start_stop_timer':
-          description = 'Start/stop build order timer';
+          description = '开始/停止建造顺序计时';
           break;
         case 'reset_timer':
-          description = 'Reset build order timer';
+          description = '重置建造顺序计时';
           break;
       }
 
@@ -1521,7 +1778,7 @@ function getDiplayOverlayTooltiptext() {
 
   // No hotkey
   if (!atLeastOneHotkey) {
-    htmlString += '<div>- No hotkey defined.</div>';
+    htmlString += '<div>- 未定义热键。</div>';
   }
 
   return htmlString;
@@ -1550,8 +1807,8 @@ function updateBOFromWidgets() {
   if (newUsePiP !== usePiP) {
     usePiP = newUsePiP;
     document.getElementById('pip_window_selection_text').innerHTML = usePiP
-      ? 'Picture-in-Picture'
-      : 'Classical window';
+      ? '画中画'
+      : '经典窗口';
   }
 
   // Auto resize overlay or manual resize
@@ -1559,8 +1816,8 @@ function updateBOFromWidgets() {
   if (newManualResize !== manualResize) {
     manualResize = newManualResize;
     document.getElementById('auto_resize_selection_text').innerHTML = manualResize
-      ? 'Manual resize'
-      : 'Auto resize';
+      ? '手动调整大小'
+      : '自动调整大小';
   }
 
   // Fixed top corner choice
@@ -1568,7 +1825,7 @@ function updateBOFromWidgets() {
   if (newOverlayOnRightSide !== overlayOnRightSide) {
     overlayOnRightSide = newOverlayOnRightSide;
     document.getElementById('side_selection_text').innerHTML =
-      'Overlay on the ' + (overlayOnRightSide ? 'right' : 'left');
+      '浮层靠' + (overlayOnRightSide ? '右' : '左');
     updateBOPanel(false);
   }
 }
@@ -2554,6 +2811,62 @@ function invalidMsg(msg = '') {
 }
 
 /**
+ * Chinese label for a build-order field type.
+ * The type id itself stays English because validation switches on it.
+ *
+ * @param {string} type  Field type id.
+ *
+ * @returns Label shown in validation messages.
+ */
+/**
+ * Chinese label for a faction id shown in the library and visual editor.
+ * The stored value stays the English game-data id.
+ *
+ * @param {string} factionName  Faction id.
+ *
+ * @returns Display label.
+ */
+function factionLabel(factionName) {
+  if (factionsList[factionName]) {
+    return factionsList[factionName][0];
+  }
+  return factionName;
+}
+
+/**
+ * Chinese label for a faction JSON field.
+ * The field name itself stays the English key.
+ *
+ * @param {string} fieldName  JSON field name.
+ *
+ * @returns Display label.
+ */
+function factionFieldLabel(fieldName) {
+  const labels = {
+    civilization: '文明',
+    major_god: '主神',
+    race: '种族',
+    opponent_race: '对手种族',
+  };
+  return labels[fieldName] || fieldName;
+}
+
+function fieldTypeLabel(type) {
+  switch (type) {
+    case 'integer':
+      return '整数';
+    case 'string':
+      return '字符串';
+    case 'boolean':
+      return '布尔值';
+    case 'array of strings':
+      return '字符串数组';
+    default:
+      return type;
+  }
+}
+
+/**
  * Check if the faction(s) provided is correct.
  *
  * @param {string} BONameStr    Message prefix with the build order name.
@@ -2573,7 +2886,7 @@ function checkValidFaction(BONameStr, factionName, requested, anyValid = true) {
     if (Array.isArray(factionData)) {
       // List of factions
       if (factionData.length === 0) {
-        return invalidMsg(BONameStr + 'Valid "' + factionName + '" list is empty.');
+        return invalidMsg(BONameStr + '有效的 “' + factionName + '” 列表为空。');
       }
 
       for (const faction of factionData) {
@@ -2581,7 +2894,7 @@ function checkValidFaction(BONameStr, factionName, requested, anyValid = true) {
         const anyFlag = ['any', 'Any'].includes(faction);
         if (!(!anyFlag && faction in factionsList) && !(anyFlag && anyValid)) {
           return invalidMsg(
-            BONameStr + 'Unknown ' + factionName + ' "' + faction + '" (check spelling).'
+            BONameStr + '未知的 ' + factionName + ' “' + faction + '”（请检查拼写）。'
           );
         }
       }
@@ -2591,14 +2904,14 @@ function checkValidFaction(BONameStr, factionName, requested, anyValid = true) {
       const anyFlag = ['any', 'Any'].includes(factionData);
       if (!(!anyFlag && factionData in factionsList) && !(anyFlag && anyValid)) {
         return invalidMsg(
-          BONameStr + 'Unknown ' + factionName + ' "' + factionData + '" (check spelling).'
+          BONameStr + '未知的 ' + factionName + ' “' + factionData + '”（请检查拼写）。'
         );
       }
     }
   }
   // Faction is not provided
   else if (requested) {
-    return invalidMsg(BONameStr + 'Missing "' + factionName + '" field.');
+    return invalidMsg(BONameStr + '缺少 “' + factionName + '” 字段。');
   }
 
   return validMsg(); // Valid faction(s)
@@ -2705,18 +3018,18 @@ class FieldDefinition {
    */
   check(value) {
     if (!this.checkType(value)) {
-      return invalidMsg('Wrong value (' + value + '), expected ' + this.type + ' type.');
+      return invalidMsg('取值错误（' + value + '），应为 ' + fieldTypeLabel(this.type) + ' 类型。');
     }
 
     if (!this.checkRange(value)) {
       return invalidMsg(
-        'Wrong value (' +
+        '取值错误（' +
           value +
-          '), must be in [' +
+          '），必须在 [' +
           this.validRange[0] +
           ' ; ' +
           this.validRange[1] +
-          '] range.'
+          '] 范围内。'
       );
     }
 
@@ -2751,14 +3064,14 @@ function checkValidSteps(BONameStr, fields) {
   // Size of the build order
   const buildOrderData = dataBO['build_order'];
   if (buildOrderData.length < 1) {
-    return invalidMsg(BONameStr + 'Build order is empty.');
+    return invalidMsg(BONameStr + '建造顺序为空。');
   }
 
   // Loop on the build order steps
   for (const [stepID, step] of enumerate(buildOrderData)) {
     // Prefix before error message
     const prefixMsg =
-      BONameStr + 'Step ' + (stepID + 1).toString() + '/' + buildOrderData.length + ' | ';
+      BONameStr + '步骤 ' + (stepID + 1).toString() + '/' + buildOrderData.length + ' | ';
 
     // Loop on all the step fields
     for (const field of fields) {
@@ -2780,13 +3093,13 @@ function checkValidSteps(BONameStr, fields) {
           // Child field is missing
           else if (field.requested) {
             return invalidMsg(
-              prefixMsg + 'Missing field: "' + field.parentName + '/' + field.name + '".'
+              prefixMsg + '缺少字段：“' + field.parentName + '/' + field.name + '”。'
             );
           }
         }
         // Parent field missing
         else if (field.requested) {
-          return invalidMsg(prefixMsg + 'Missing field: "' + field.parentName + '".');
+          return invalidMsg(prefixMsg + '缺少字段：“' + field.parentName + '”。');
         }
       }
       // Not present in a parent
@@ -2798,7 +3111,7 @@ function checkValidSteps(BONameStr, fields) {
       }
       // Field is missing
       else if (field.requested) {
-        return invalidMsg(prefixMsg + 'Missing field: "' + field.name + '".');
+        return invalidMsg(prefixMsg + '缺少字段：“' + field.name + '”。');
       }
     }
   }
@@ -3001,27 +3314,27 @@ function saveBOToFile(data = null) {
  */
 function deleteSelectedBO() {
   if (!selectedBOFromLibrary) {
-    alert('No build order from library currently selected.');
+    alert('当前没有选中库中的建造顺序。');
     return;
   }
   const keyName = gameName + '|' + selectedBOFromLibrary;
 
   if (!localStorage.getItem(keyName)) {
-    alert("No build order in local storage with key name '" + keyName + "'.");
+    alert('本地存储中没有键名为 “' + keyName + '” 的建造顺序。');
     return;
   }
 
   const text =
-    "Are you sure you want to delete the build order '" +
+    '确定要从本地存储中删除建造顺序 “' +
     selectedBOFromLibrary +
-    "' (" +
+    '”（' +
     gameFullName +
-    ') from your local storage?\nThis cannot be undone.';
+    '）吗？\n此操作无法撤销。';
   if (confirm(text)) {
     localStorage.removeItem(keyName);
     readLibrary();
     updateLibrarySearch();
-    alert("Build order removed: '" + selectedBOFromLibrary + "'.");
+    alert('已删除建造顺序：“' + selectedBOFromLibrary + '”。');
   }
 }
 
@@ -3030,10 +3343,10 @@ function deleteSelectedBO() {
  */
 function deleteAllBOs() {
   const text =
-    'Are you sure you want to delete ALL BUILD ORDERS (from ' +
+    '确定要从本地存储中删除' +
     gameFullName +
-    ') from your local storage?' +
-    '\nThis cannot be undone.';
+    '的全部建造顺序吗？' +
+    '\n此操作无法撤销。';
 
   if (confirm(text)) {
     const gamePrefix = gameName + '|';
@@ -3054,7 +3367,7 @@ function deleteAllBOs() {
 
     readLibrary();
     updateLibrarySearch();
-    alert('All build orders from ' + gameFullName + ' removed.');
+    alert('已删除' + gameFullName + '的全部建造顺序。');
   }
 }
 
@@ -3080,21 +3393,20 @@ function addToLocalStorage() {
 
     if (localStorage.getItem(keyName)) {
       const text =
-        "There is already a build order with name '" +
-        dataBO['name'] +
-        "' for " +
         gameFullName +
-        '.\nDo you want to replace it with your new build order?';
+        '已有名为 “' +
+        dataBO['name'] +
+        '” 的建造顺序。\n要用新的建造顺序替换它吗？';
       if (!confirm(text)) {
         return;
       }
     } else {
       const text =
-        "Do you want to save your build order with name '" +
+        '要把建造顺序保存为 “' +
         dataBO['name'] +
-        "' for " +
+        '”（' +
         gameFullName +
-        '?';
+        '）吗？';
       if (!confirm(text)) {
         return;
       }
@@ -3103,9 +3415,9 @@ function addToLocalStorage() {
     localStorage.setItem(keyName, JSON.stringify(dataBO));
     readLibrary();
     updateLibrarySearch();
-    alert("Build order saved with key name '" + keyName + "' in local storage.");
+    alert('建造顺序已保存到本地存储，键名为 “' + keyName + '”。');
   } else {
-    alert('Build order is not valid. It cannot be saved.');
+    alert('建造顺序无效，无法保存。');
   }
 }
 
@@ -3387,7 +3699,7 @@ function mouseClickSearchResult(key) {
   }
 
   // Update build order search lines
-  let boSearchText = '<div " class="search_key_line">Selected build order:</div>';
+  let boSearchText = '<div " class="search_key_line">已选建造顺序：</div>';
   boSearchText += '<div " class="search_key_line search_key_select">' + key + '</div>';
 
   document.getElementById('bo_faction_text').value = '';
@@ -3414,56 +3726,46 @@ function updateLibrarySearch() {
 
   // Library is empty
   if (Object.keys(library).length === 0) {
-    boSearchText += '<div>No build order in library for <i>' + gameFullName + '</i>.</div>';
+    boSearchText += '<div><i>' + gameFullName + '</i> 的库中没有建造顺序。</div>';
     if (gameName in EXTERNAL_BO_WEBSITES) {
-      boSearchText +=
-        '<div>Download one <b>from an external website</b> or <b>design your own</b>.</div>';
+      boSearchText += '<div>请<b>从外部网站</b>获取，或<b>自行设计</b>。</div>';
     } else {
-      boSearchText += '<div><b>Design your own</b> build order in the corresponding panel.</div>';
+      boSearchText += '<div>请在对应面板中<b>自行设计</b>建造顺序。</div>';
     }
   }
   // No build order for the currently selected faction condition
   else if (libraryValidKeys.length === 0) {
     boSearchText +=
-      '<div>No build order in your library for faction <b>' +
-      document.getElementById('library_faction_select_widget').value +
-      '</b>';
+      '<div>库中没有阵营为 <b>' +
+      factionLabel(document.getElementById('library_faction_select_widget').value) +
+      '</b> 的建造顺序';
     if (FACTION_FIELD_NAMES[gameName]['opponent']) {
       boSearchText +=
-        ' with opponent <b>' +
-        document.getElementById('bo_opponent_faction_select_widget').value +
+        '，且对手为 <b>' +
+        factionLabel(document.getElementById('bo_opponent_faction_select_widget').value) +
         '</b>';
     }
-    boSearchText += '.</div>';
+    boSearchText += '。</div>';
   }
   // At least one valid build order for the currently selected faction condition
   else {
     // Nothing added in the search field
     if (searchStr.length === 0) {
       const factionName = document.getElementById('library_faction_select_widget').value;
-      boSearchText += '<div>Select the player faction above (<b>' + factionName + '</b>)';
+      boSearchText += '<div>请在上方选择玩家阵营（<b>' + factionLabel(factionName) + '</b>）';
 
       if (FACTION_FIELD_NAMES[gameName]['opponent']) {
         const opponentFactionName = document.getElementById(
           'bo_opponent_faction_select_widget'
         ).value;
-        boSearchText +=
-          ' and opponent faction (' +
-          factionsList[opponentFactionName][0] +
-          ': <b>' +
-          opponentFactionName +
-          '</b>)';
+        boSearchText += '和对手阵营（<b>' + factionLabel(opponentFactionName) + '</b>）';
       }
-      boSearchText += '.</div>';
+      boSearchText += '。</div>';
 
+      boSearchText += '<div>然后在文本框中输入<b>关键词</b>，搜索库中的建造顺序。</div>';
       boSearchText +=
-        '<div>Then, add <b>keywords</b> in the text field to search any build order from your library.</div>';
-      boSearchText +=
-        '<div>Alternatively, use <b>a single space</b> to select the first ' +
-        MAX_SEARCH_RESULTS +
-        ' build orders.</div>';
-      boSearchText +=
-        '<div>Finally, click on the requested build order from the list (will appear here).</div>';
+        '<div>也可以只输入<b>一个空格</b>，列出前 ' + MAX_SEARCH_RESULTS + ' 个建造顺序。</div>';
+      boSearchText += '<div>最后点击列表中需要的建造顺序（会显示在这里）。</div>';
     }
     // Look for pattern in search field
     else {
@@ -3683,7 +3985,7 @@ function addMetaDataLine(buttonImage) {
   }
 
   // Name of the new key
-  let newKey = 'field name';
+  let newKey = '字段名';
   if (newKey in dataBO) {
     // Set it to 'field name X', with X >= 2
     let counter = 2;
@@ -3717,7 +4019,7 @@ function addMetaDataLine(buttonImage) {
       updatedDataBO[key] = dataBO[key];
 
       if (key === insertKey) {
-        updatedDataBO[newKey] = 'Note';
+        updatedDataBO[newKey] = '备注';
       }
     });
     dataBO = updatedDataBO;
@@ -3900,7 +4202,7 @@ function addNoteLineBelow(buttonImage) {
     if (0 <= currentStepID && currentStepID < buildOrderData.length) {
       let noteData = buildOrderData[currentStepID]['notes'];
       if (0 <= currentNoteID && currentNoteID < noteData.length) {
-        noteData.splice(currentNoteID + 1, 0, 'Note');
+        noteData.splice(currentNoteID + 1, 0, '备注');
         updateVisualEditorAfterButton();
       } else {
         console.log('Note ID is not valid to add a note.');
@@ -3958,7 +4260,7 @@ function addMetaDataButton() {
     'icon/light_blue_plus.webp',
     VISUAL_EDITOR_ICON_HEIGHT,
     'addMetaDataLine',
-    'add optional metadata'
+    '添加可选信息'
   );
 }
 
@@ -3972,7 +4274,7 @@ function removeMetaDataButton() {
     'icon/orange_cross.webp',
     VISUAL_EDITOR_ICON_HEIGHT,
     'removeMetaDataLine',
-    'remove this line'
+    '删除此行'
   );
 }
 
@@ -4492,7 +4794,7 @@ function getVisualEditorFromDescription(columnsDescription) {
   htmlResult += ' ondrop="BODesignDropHandler(event)">';
 
   // BO Name
-  htmlResult += '<tr id="visual_editor_bo_name_line"><td class="non_editable_field">BO Name</td>';
+  htmlResult += '<tr id="visual_editor_bo_name_line"><td class="non_editable_field">顺序名称</td>';
   htmlResult += '<td id="visual_edit_bo_name"';
   htmlResult += ' contenteditable="true"';
   htmlResult += ' oninput="updateRawBOFromVisualEditor()">' + dataBO.name + '</td></tr>';
@@ -4500,7 +4802,7 @@ function getVisualEditorFromDescription(columnsDescription) {
   // Player faction selection
   htmlResult +=
     '<tr id="visual_editor_faction_line" class="visual_editor_button_line"><td class="non_editable_field">' +
-    capitalizeFirstLetter(FACTION_FIELD_NAMES[gameName]['player']).replace(/_/g, ' ') +
+    factionFieldLabel(FACTION_FIELD_NAMES[gameName]['player']) +
     '</td>';
   htmlResult += '<td><div class="bo_design_select_with_image">';
   htmlResult += '<select id="visual_edit_faction_select"';
@@ -4520,7 +4822,7 @@ function getVisualEditorFromDescription(columnsDescription) {
   if (FACTION_FIELD_NAMES[gameName]['opponent']) {
     htmlResult +=
       '<tr id="visual_editor_opponent_faction_line" class="visual_editor_button_line"><td class="non_editable_field">' +
-      capitalizeFirstLetter(FACTION_FIELD_NAMES[gameName]['opponent']).replace(/_/g, ' ') +
+      factionFieldLabel(FACTION_FIELD_NAMES[gameName]['opponent']) +
       '</td>';
     htmlResult += '<td><div class="bo_design_select_with_image">';
     htmlResult += '<select id="visual_edit_opponent_faction_select"';
@@ -4587,7 +4889,7 @@ function getVisualEditorFromDescription(columnsDescription) {
           'icon/top_arrow.webp',
           VISUAL_EDITOR_ICON_HEIGHT,
           'moveStepLinesUp',
-          'move step up',
+          '上移步骤',
           false
         );
       }
@@ -4596,7 +4898,7 @@ function getVisualEditorFromDescription(columnsDescription) {
           'icon/down_arrow.webp',
           VISUAL_EDITOR_ICON_HEIGHT,
           'moveStepLinesDown',
-          'move step down',
+          '下移步骤',
           false
         );
       }
@@ -4605,7 +4907,7 @@ function getVisualEditorFromDescription(columnsDescription) {
       'icon/light_blue_plus.webp',
       VISUAL_EDITOR_ICON_HEIGHT,
       'addStepLinesBelow',
-      'add step below',
+      '在下方添加步骤',
       false
     );
     if (stepCount >= 2) {
@@ -4613,7 +4915,7 @@ function getVisualEditorFromDescription(columnsDescription) {
         'icon/orange_cross.webp',
         VISUAL_EDITOR_ICON_HEIGHT,
         'removeStepLines',
-        'remove this step',
+        '删除此步骤',
         false
       );
     }
@@ -4708,7 +5010,7 @@ function getVisualEditorFromDescription(columnsDescription) {
         'icon/grey_return.webp',
         VISUAL_EDITOR_ICON_HEIGHT,
         'addNoteLineBelow',
-        'add note on a new line',
+        '在新行添加备注',
         false
       );
       if (noteCount >= 2) {
@@ -4716,7 +5018,7 @@ function getVisualEditorFromDescription(columnsDescription) {
           'icon/orange_cross.webp',
           VISUAL_EDITOR_ICON_HEIGHT,
           'removeNoteLine',
-          'remove this note line',
+          '删除此备注行',
           false
         );
       }
@@ -4834,17 +5136,19 @@ function openSinglePanelPageFromDescription(columnsDescription, sectionsHeader =
   let fullPageWindow = window.open('', '_blank');
 
   // Prepare HTML main content
-  let htmlContent = '<!DOCTYPE html>\n<html lang="en">\n\n';
+  let htmlContent = '<!DOCTYPE html>\n<html lang="zh-CN">\n\n';
   htmlContent += '<head>\n';
 
   // Title
-  htmlContent += indentSpace(1) + '<title>RTS Overlay - ' + dataBO['name'] + '</title>\n';
+  htmlContent += indentSpace(1) + '<title>RTS 浮层 - ' + dataBO['name'] + '</title>\n';
 
   // Style
   htmlContent += indentSpace(1) + '<style>\n';
 
   htmlContent += indentSpace(2) + 'body {\n';
-  htmlContent += indentSpace(3) + 'font-family: Arial, Helvetica, sans-serif;\n';
+  htmlContent +=
+    indentSpace(3) +
+    "font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', Arial, Helvetica, sans-serif;\n";
   htmlContent += indentSpace(3) + 'background-color: rgb(176, 176, 176);\n';
   htmlContent += indentSpace(3) + 'margin: 0;\n';
   htmlContent += indentSpace(3) + 'padding: 20px;\n';
@@ -4994,23 +5298,23 @@ function openSinglePanelPageFromDescription(columnsDescription, sectionsHeader =
   htmlContent += indentSpace(1) + '<div class="container">\n';
   htmlContent += indentSpace(2) + '<div class="header">\n';
   htmlContent +=
-    indentSpace(3) + '<img src="assets/common/title/rts_overlay.webp" alt="RTS Overlay Title" />\n';
+    indentSpace(3) + '<img src="assets/common/title/rts_overlay.webp" alt="RTS 浮层标题" />\n';
   htmlContent += indentSpace(2) + '</div>\n';
 
   // Build order name
   htmlContent +=
     indentSpace(2) +
-    '<h1 style=\'text-align: center; margin-bottom: 30px; font-family: \"Book Antiqua\", Palatino, serif; font-size: 40px;\'>' +
+    '<h1 style=\'text-align: center; margin-bottom: 30px; font-family: \"Microsoft YaHei\", \"PingFang SC\", \"Book Antiqua\", Palatino, serif; font-size: 40px;\'>' +
     dataBO['name'] +
     '</h1>\n';
 
   // Buttons to export build order
   htmlContent += indentSpace(2) + '<div class="selectors">\n';
   htmlContent += indentSpace(3) + '<div class="selector-group">\n';
-  htmlContent += indentSpace(4) + '<button id="copy_bo">Copy build order to clipboard</button>\n';
+  htmlContent += indentSpace(4) + '<button id="copy_bo">复制建造顺序到剪贴板</button>\n';
   htmlContent += indentSpace(3) + '</div>\n';
   htmlContent += indentSpace(3) + '<div class="selector-group">\n';
-  htmlContent += indentSpace(4) + '<button id="export_bo">Export build order</button>\n';
+  htmlContent += indentSpace(4) + '<button id="export_bo">导出建造顺序</button>\n';
   htmlContent += indentSpace(3) + '</div>\n';
   htmlContent += indentSpace(2) + '</div>\n';
 
@@ -5244,10 +5548,10 @@ async function displayOverlay() {
   const userBackgroundColor = backgroundColorPicker ? backgroundColorPicker.value : '#343a40'; // Fallback to default
 
   // HTML content (shared between PiP and window.open)
-  const headContent = '<title>RTS Overlay</title>';
+  const headContent = '<title>RTS 浮层</title>';
   const bodyContent = '<div id="bo_panel">' + getBOPanelContent(true, validBO ? 0 : -1) + '</div>';
 
-  let htmlContent = '<!DOCTYPE html><html lang="en">';
+  let htmlContent = '<!DOCTYPE html><html lang="zh-CN">';
 
   // Add inline style to override the background color
   htmlContent += '\n<head>';
@@ -5351,10 +5655,10 @@ async function displayOverlay() {
   // --- Fallback: Classic window.open() ---
   if (localStorage.getItem('hideAlwaysOnTopNote') !== 'true') {
     const userChoice = confirm(
-      'To keep the overlay on top of your game while playing, use an Always On Top application.\n' +
-        'For Windows, PowerToys is a good solution.\n' +
-        'It is free, developed by Microsoft and available on the Microsoft Store.' +
-        '\n\nHide this message next time?'
+      '游戏时若要让浮层保持在最前，请使用始终置顶程序。\n' +
+        '在 Windows 上，PowerToys 是一个合适的选择。\n' +
+        '它免费，由微软开发，可在 Microsoft Store 获取。' +
+        '\n\n下次不再显示此消息？'
     );
     if (userChoice) {
       localStorage.setItem('hideAlwaysOnTopNote', 'true');
@@ -5405,10 +5709,10 @@ function contentArrayToDiv(content) {
  */
 function getArrayInstructions(externalBOLines = null) {
   let result = [
-    "Update the panel below with the requested build order, then click on 'Display overlay' or 'Open full page'",
-    '(appearing on the left side of the screen when the build order is valid).',
+    '在下方面板填入所需建造顺序，然后点击“显示浮层”或“打开完整页面”',
+    '（建造顺序有效时，这两个按钮会出现在屏幕左侧）。',
     '',
-    'Filter and select (or delete) your stored build orders in the <b>From library</b> section.',
+    '在<b>来自库</b>区域筛选、选择或删除已保存的建造顺序。',
   ];
 
   if (externalBOLines) {
@@ -5418,37 +5722,36 @@ function getArrayInstructions(externalBOLines = null) {
 
   const buttonsLines = [
     '',
-    (externalBOLines ? 'You can also write' : 'Write') +
-      ' your own build order in the <b>Design your own</b> section.',
-    'Some helper buttons will appear in this section (on the left side). On the top right side, select between:',
-    '&nbsp &nbsp - <i>Visual editor</i> (recommended): use the widgets to describe each step of the build order.',
-    '&nbsp &nbsp - <i>Raw editor</i> (advanced use): write the build order in JSON format.',
+    (externalBOLines ? '也可以在' : '在') + '<b>自行设计</b>区域编写自己的建造顺序。',
+    '此区域会出现一些辅助按钮（位于左侧）。右上角可在以下两者之间选择：',
+    '&nbsp &nbsp - <i>可视化编辑器</i>（推荐）：用控件描述建造顺序的每一步。',
+    '&nbsp &nbsp - <i>原始编辑器</i>（高级）：用 JSON 格式编写建造顺序。',
   ];
   result = result.concat(buttonsLines);
 
   const imagesSelectionLines = [
     '',
-    "In the 'Image selection' section on the bottom right (select first <b>Design your own</b>), you can get images",
-    'by selecting a category and clicking on the requested image (<i>Raw editor</i>) or by dragging and dropping (<i>Visual editor</i>).',
-    'For <i>Visual editor</i>, you can also write <b>@</b>, followed be the image name to search, then use the arrow keys and Enter.',
+    '在右下角的“图片选择”区域（需先选择<b>自行设计</b>），可以选择分类并点击图片（<i>原始编辑器</i>），',
+    '或把图片拖放进去（<i>可视化编辑器</i>）。',
+    '在<i>可视化编辑器</i>中，也可以输入 <b>@</b> 再输入要搜索的图片名称，然后用方向键和 Enter 选择。',
   ];
   result = result.concat(imagesSelectionLines);
 
   const validityFontSizeSavePart = [
     '',
-    'The build order validity is constantly checked. If it is not valid, a message appears on top of the text panel to explain',
-    'what the issue is. An hourglass icon also appears on the top to check if the timer feature is compatible with the build order.',
+    '系统会持续检查建造顺序是否有效。若无效，文本面板上方会出现说明问题的消息。',
+    '顶部还会出现沙漏图标，用来表示计时功能是否适用于该建造顺序。',
     '',
-    "To save your build order, click on 'Add to library' (on the left when valid build order). This will save the build order",
-    'in your local storage, allowing you to load it from the <b>From library</b> section (persisting after re-opening the app).',
-    "You can also click on 'Export file' to save it as a JSON file or  'Copy to clipboard', to copy the build order content.",
-    'To re-load a build order, drag and drop a file with the build order on the bottom text panel (or replace the text manually).',
+    '要保存建造顺序，请点击“加入库”（建造顺序有效时出现在左侧）。建造顺序会保存到本地存储，',
+    '之后可从<b>来自库</b>区域载入（重新打开应用后仍然保留）。',
+    '也可以点击“导出文件”保存为 JSON 文件，或点击“复制到剪贴板”复制建造顺序内容。',
+    '要重新载入，把建造顺序文件拖放到下方文本面板（或手动替换文本）。',
     '',
-    'You can download a local copy of RTS Overlay to improve its speed, work offline and customize your experience.',
-    "Hover briefly on 'Local version' for more information.",
+    '可以下载 RTS 浮层的本地副本，以加快速度、离线使用并自定义体验。',
+    '将鼠标悬停在“本地版本”上可查看更多说明。',
     '',
-    'Finally, you can also download RTS Overlay as an EXE app, to get an improved experience.',
-    "Hover briefly on 'Download exe app' for more information.",
+    '也可以把 RTS 浮层下载为 EXE 程序，以获得更好的体验。',
+    '将鼠标悬停在“下载 EXE 程序”上可查看更多说明。',
   ];
   return result.concat(validityFontSizeSavePart);
 }
@@ -5460,15 +5763,15 @@ function getArrayInstructions(externalBOLines = null) {
  */
 function getWelcomeMessage() {
   return `
-Welcome to RTS Overlay! \
-\n\nRTS Overlay allows you to easily design or import build orders for Real-Time Strategy games \
-(select your favorite game on the left part of the screen). \
-\nYour build order can then be displayed on top of the game, allowing you to use it with a single monitor. \
-\nUpdating the build order step in-game is done manually via buttons/hotkeys/timer.\
-\nIt does not interact with the game (no screen analysis, no controller interaction).\
-\n\nHover on the information button ("i" icon on top of this panel) to read the full instructions.\
-\nTooltips are available for the buttons on the left (by hovering during a short time). \
-\n\nHave fun!`;
+欢迎使用 RTS 浮层！\
+\n\nRTS 浮层可以方便地为即时战略游戏设计或导入建造顺序\
+（在屏幕左侧选择游戏）。\
+\n建造顺序可以显示在游戏之上，因此单显示器也能使用。\
+\n游戏中切换建造顺序步骤需要手动操作，可通过按钮、热键或计时器完成。\
+\n它不会与游戏交互（不分析画面，也不操控游戏）。\
+\n\n将鼠标悬停在信息按钮（本面板顶部的 “i” 图标）上，可阅读完整说明。\
+\n左侧按钮也有提示（短暂停悬停即可看到）。\
+\n\n玩得开心！`;
 }
 
 /**

@@ -3,7 +3,7 @@
 /* Define parameters */
 :root {
     /* Font */
-    --font_family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    --font_family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 
     /* Colors */
     --primary-color: #072261;

@@ -67,7 +67,7 @@ def initialize_race_combo(
             + 'border: 0px'
             + '}'
         )
-        selected_race_select.setToolTip('select race')
+        selected_race_select.setToolTip('选择种族')
         selected_race_select.adjustSize()
 
 

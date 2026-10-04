@@ -29,22 +29,22 @@ def check_valid_faction(
 
         if isinstance(faction_data, list):  # List of factions
             if len(faction_data) == 0:
-                return False, bo_name_str + 'Valid "' + faction_name + '" list is empty.'
+                return False, bo_name_str + '有效的 “' + faction_name + '” 列表为空。'
 
             for faction in faction_data:  # Loop on the provided factions
                 any_flag = faction in ['any', 'Any']
                 if not (not any_flag and (faction in factions_list)) and not (any_flag and any_valid):
-                    return False, bo_name_str + 'Unknown ' + faction_name + ' "' + faction + '" (check spelling).'
+                    return False, bo_name_str + '未知的 ' + faction_name + ' “' + faction + '”（请检查拼写）。'
 
         # Single faction provided
         else:
             any_flag = faction_data in ['any', 'Any']
             if not (not any_flag and (faction_data in factions_list)) and not (any_flag and any_valid):
-                return False, bo_name_str + 'Unknown ' + faction_name + ' "' + faction_data + '" (check spelling).'
+                return False, bo_name_str + '未知的 ' + faction_name + ' “' + faction_data + '”（请检查拼写）。'
 
     # Faction is not provided
     elif requested:
-        return False, bo_name_str + 'Missing "' + faction_name + '" field.'
+        return False, bo_name_str + '缺少 “' + faction_name + '” 字段。'
 
     return True, ''  # Valid faction(s)
 
@@ -143,21 +143,32 @@ class FieldDefinition:
         String indicating the error (empty if no error).
         """
         if not self.check_type(value):
-            return False, 'Wrong value (' + value + '), expected ' + self.field_type + ' type.'
+            return False, '取值错误（' + str(value) + '），应为 ' + field_type_label(self.field_type) + ' 类型。'
 
         if not self.check_range(value):
             return (
                 False,
-                'Wrong value ('
+                '取值错误（'
                 + str(value)
-                + '), must be in ['
+                + '），必须在 ['
                 + str(self.valid_range[0])
                 + ' ; '
                 + str(self.valid_range[1])
-                + '] range.',
+                + '] 范围内。',
             )
 
         return True, ''
+
+
+def field_type_label(field_type: str) -> str:
+    """Chinese label for a build-order field type. The type id stays English."""
+    labels = {
+        'integer': '整数',
+        'string': '字符串',
+        'boolean': '布尔值',
+        'array of strings': '字符串数组',
+    }
+    return labels.get(field_type, field_type)
 
 
 def check_valid_steps(build_order, bo_name_str: str, fields: list):
@@ -177,12 +188,12 @@ def check_valid_steps(build_order, bo_name_str: str, fields: list):
     # Size of the build order
     build_order_data = build_order['build_order']
     if len(build_order_data) < 1:
-        return False, bo_name_str + 'Build order is empty.'
+        return False, bo_name_str + '建造顺序为空。'
 
     # Loop on the build order steps
     for stepID, step in enumerate(build_order_data):
         # Prefix before error message
-        prefix_msg = bo_name_str + 'Step ' + str(stepID + 1) + '/' + str(len(build_order_data)) + ' | '
+        prefix_msg = bo_name_str + '步骤 ' + str(stepID + 1) + '/' + str(len(build_order_data)) + ' | '
 
         # Loop on all the step fields
         for field in fields:
@@ -199,11 +210,11 @@ def check_valid_steps(build_order, bo_name_str: str, fields: list):
 
                     # Child field is missing
                     elif field.requested:
-                        return False, prefix_msg + 'Missing field: "' + field.parent_name + '/' + field.name + '".'
+                        return False, prefix_msg + '缺少字段：“' + field.parent_name + '/' + field.name + '”。'
 
                 # Parent field missing
                 elif field.requested:
-                    return False, prefix_msg + 'Missing field: "' + field.parent_name + '".'
+                    return False, prefix_msg + '缺少字段：“' + field.parent_name + '”。'
 
             # Not present in a parent
             elif field.name in step:
@@ -213,7 +224,7 @@ def check_valid_steps(build_order, bo_name_str: str, fields: list):
 
             # Field is missing
             elif field.requested:
-                return False, prefix_msg + 'Missing field: "' + field.name + '".'
+                return False, prefix_msg + '缺少字段：“' + field.name + '”。'
 
     return True, ''
 

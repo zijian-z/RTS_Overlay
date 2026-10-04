@@ -82,10 +82,10 @@ function getBOStepWC3(buildOrderData, copyStepID = -1) {
       food: 'food' in data ? data['food'] : -1,
       gold: 'gold' in data ? data['gold'] : -1,
       lumber: 'lumber' in data ? data['lumber'] : -1,
-      notes: ['Note'],
+      notes: ['备注'],
     };
   } else {
-    return { food: -1, gold: -1, lumber: -1, notes: ['Note'] };
+    return { food: -1, gold: -1, lumber: -1, notes: ['备注'] };
   }
 }
 
@@ -98,9 +98,9 @@ function getBOTemplateWC3() {
   return {
     race: 'Humans',
     opponent_race: 'Any',
-    name: 'Build order name',
-    author: 'Author',
-    source: 'Source',
+    name: '建造顺序名称',
+    author: '作者',
+    source: '来源',
     build_order: [getBOStepWC3(null)],
   };
 }
@@ -177,11 +177,11 @@ function getImagesWC3() {
  */
 function getFactionsWC3() {
   return {
-    Humans: ['HUM', 'human.webp'],
-    Orcs: ['ORC', 'orc.webp'],
-    'Night Elves': ['NIG', 'night_elf.webp'],
-    Undead: ['UND', 'undead.webp'],
-    Any: ['ANY', 'dice.webp'],
+    Humans: ['人族', 'human.webp'],
+    Orcs: ['兽族', 'orc.webp'],
+    'Night Elves': ['暗夜精灵', 'night_elf.webp'],
+    Undead: ['亡灵', 'undead.webp'],
+    Any: ['任意', 'dice.webp'],
   };
 }
 
@@ -228,10 +228,10 @@ function getVisualEditorWC3() {
   columnsDescription[2].backgroundColor = [167, 115, 0]; // gold
   columnsDescription[3].backgroundColor = [80, 100, 0]; // lumber
 
-  columnsDescription[0].tooltip = "step time as 'x:yy'"; // time
-  columnsDescription[1].tooltip = 'food count'; // food
-  columnsDescription[2].tooltip = 'workers on gold'; // gold
-  columnsDescription[3].tooltip = 'workers on lumber'; // lumber
+  columnsDescription[0].tooltip = '步骤时间，格式为 x:yy'; // time
+  columnsDescription[1].tooltip = '食物数量'; // food
+  columnsDescription[2].tooltip = '采集黄金的工人'; // gold
+  columnsDescription[3].tooltip = '采集木材的工人'; // lumber
 
   // Show only positive characters
   for (let i = 1; i <= 3; i++) {

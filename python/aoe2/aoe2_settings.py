@@ -34,7 +34,7 @@ class AoE2OverlaySettings(RTSOverlaySettings):
         """Constructor"""
         super().__init__()
 
-        self.title: str = 'AoEII Overlay'  # application title
+        self.title: str = '帝国时代II 浮层'  # application title
 
         # layout
         self.layout = AoE2Layout()

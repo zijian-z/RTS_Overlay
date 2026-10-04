@@ -42,7 +42,7 @@ class WC3OverlaySettings(RTSOverlaySettings):
         """Constructor"""
         super().__init__()
 
-        self.title: str = 'WC3 Overlay'  # application title
+        self.title: str = '魔兽争霸3 浮层'  # application title
 
         # layout
         self.layout = WC3Layout()

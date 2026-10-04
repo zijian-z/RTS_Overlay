@@ -106,14 +106,14 @@ function getBOStepAoM(buildOrderData, copyStepID = -1) {
       worker_count: 'worker_count' in data ? data['worker_count'] : 0,
       age: 'age' in data ? data['age'] : 1,
       resources: 'resources' in data ? data['resources'] : { food: 0, wood: 0, gold: 0, favor: 0 },
-      notes: ['Note'],
+      notes: ['备注'],
     };
   } else {
     return {
       worker_count: 0,
       age: 1,
       resources: { food: 0, wood: 0, gold: 0, favor: 0 },
-      notes: ['Note'],
+      notes: ['备注'],
     };
   }
 }
@@ -126,9 +126,9 @@ function getBOStepAoM(buildOrderData, copyStepID = -1) {
 function getBOTemplateAoM() {
   return {
     major_god: 'Zeus',
-    name: 'Build order name',
-    author: 'Author',
-    source: 'Source',
+    name: '建造顺序名称',
+    author: '作者',
+    source: '来源',
     build_order: [getBOStepAoM(null)],
   };
 }
@@ -494,35 +494,35 @@ function getImagesAoM() {
 function getFactionsAoM() {
   return {
     // Greeks
-    Zeus: ['ZEU', 'zeus.webp'],
-    Hades: ['HAD', 'hades.webp'],
-    Poseidon: ['POS', 'poseidon.webp'],
-    Demeter: ['DEM', 'demeter.webp'],
+    Zeus: ['宙斯', 'zeus.webp'],
+    Hades: ['哈迪斯', 'hades.webp'],
+    Poseidon: ['波塞冬', 'poseidon.webp'],
+    Demeter: ['得墨忒耳', 'demeter.webp'],
     // Egyptians
-    Ra: ['RA', 'ra.webp'],
-    Isis: ['ISI', 'isis.webp'],
-    Set: ['SET', 'set.webp'],
+    Ra: ['拉', 'ra.webp'],
+    Isis: ['伊西斯', 'isis.webp'],
+    Set: ['塞特', 'set.webp'],
     // Norse
-    Thor: ['THO', 'thor.webp'],
-    Odin: ['ODI', 'odin.webp'],
-    Loki: ['LOK', 'loki.webp'],
-    Freyr: ['FRE', 'freyr.webp'],
+    Thor: ['托尔', 'thor.webp'],
+    Odin: ['奥丁', 'odin.webp'],
+    Loki: ['洛基', 'loki.webp'],
+    Freyr: ['弗蕾', 'freyr.webp'],
     // Atlanteans
-    Kronos: ['KRO', 'kronos.webp'],
-    Oranos: ['ORA', 'oranos.webp'],
-    Gaia: ['GAI', 'gaia.webp'],
+    Kronos: ['克洛诺斯', 'kronos.webp'],
+    Oranos: ['乌拉诺斯', 'oranos.webp'],
+    Gaia: ['盖亚', 'gaia.webp'],
     // Chinese
-    Fuxi: ['FUX', 'fuxi.webp'],
-    Nuwa: ['NUW', 'nuwa.webp'],
-    Shennong: ['SHE', 'shennong.webp'],
+    Fuxi: ['伏羲', 'fuxi.webp'],
+    Nuwa: ['女娲', 'nuwa.webp'],
+    Shennong: ['神农', 'shennong.webp'],
     // Japanese
-    Amaterasu: ['AMA', 'amaterasu.webp'],
-    Tsukuyomi: ['TSU', 'tsukuyomi.webp'],
-    Susanoo: ['SUS', 'susanoo.webp'],
+    Amaterasu: ['天照', 'amaterasu.webp'],
+    Tsukuyomi: ['月读', 'tsukuyomi.webp'],
+    Susanoo: ['须佐之男', 'susanoo.webp'],
     // Aztecs
-    Huitzilopochtli: ['HUI', 'huitzilopochtli.webp'],
-    Quetzalcoatl: ['QUE', 'quetzalcoatl.webp'],
-    Tezcatlipoca: ['TEZ', 'tezcatlipoca.webp'],
+    Huitzilopochtli: ['维齐洛波奇特利', 'huitzilopochtli.webp'],
+    Quetzalcoatl: ['羽蛇神', 'quetzalcoatl.webp'],
+    Tezcatlipoca: ['特斯卡特利波卡', 'tezcatlipoca.webp'],
   };
 }
 
@@ -567,7 +567,7 @@ function getVisualEditorAoM() {
     new SinglePanelColumn('resources/builder', resource + 'repair.webp'),
   ];
 
-  columnsDescription[0].text = 'Age'; // age selection
+  columnsDescription[0].text = '时代'; // age selection
   columnsDescription[0].isSelectwidget = true; // age selection
   columnsDescription[1].italic = true; // time
   columnsDescription[1].optional = true; // time
@@ -579,13 +579,13 @@ function getVisualEditorAoM() {
   columnsDescription[6].backgroundColor = [100, 100, 100]; // favor
   columnsDescription[7].optional = true; // builder
 
-  columnsDescription[1].tooltip = "step end time as 'x:yy'"; // time
-  columnsDescription[2].tooltip = 'number of workers'; // worker count
-  columnsDescription[3].tooltip = 'villagers on food'; // food
-  columnsDescription[4].tooltip = 'villagers on wood'; // wood
-  columnsDescription[5].tooltip = 'villagers on gold'; // gold
-  columnsDescription[6].tooltip = 'favor gatherers'; // favor
-  columnsDescription[7].tooltip = 'number of builders'; // builder
+  columnsDescription[1].tooltip = '步骤结束时间，格式为 x:yy'; // time
+  columnsDescription[2].tooltip = '工人数量'; // worker count
+  columnsDescription[3].tooltip = '采集食物的村民'; // food
+  columnsDescription[4].tooltip = '采集木材的村民'; // wood
+  columnsDescription[5].tooltip = '采集黄金的村民'; // gold
+  columnsDescription[6].tooltip = '采集恩宠的工人'; // favor
+  columnsDescription[7].tooltip = '建造者数量'; // builder
 
   // Show only positive characters for resources
   for (let i = 2; i <= 7; i++) {
@@ -596,12 +596,12 @@ function getVisualEditorAoM() {
 
   // Age selection
   visualEditortableWidgetDescription = [
-    [-1, '?', 'age/age_unknown.webp'],
-    [1, 'ARC', 'age/archaic_age.webp'],
-    [2, 'CLA', 'age/classical_age.webp'],
-    [3, 'HER', 'age/heroic_age.webp'],
-    [4, 'MYT', 'age/mythic_age.webp'],
-    [5, 'WON', 'age/wonder_age.webp'],
+    [-1, '未知', 'age/age_unknown.webp'],
+    [1, '远古', 'age/archaic_age.webp'],
+    [2, '古典', 'age/classical_age.webp'],
+    [3, '英雄', 'age/heroic_age.webp'],
+    [4, '神话', 'age/mythic_age.webp'],
+    [5, '奇观', 'age/wonder_age.webp'],
   ];
 
   return getVisualEditorFromDescription(columnsDescription);
@@ -648,18 +648,18 @@ function openSinglePanelPageAoM() {
     key: 'age', // Key to look for
     // Header before the current row
     before: {
-      2: topArrow + 'Aging up to Classical Age',
-      3: topArrow + 'Aging up to Heroic Age',
-      4: topArrow + 'Aging up to Mythic Age',
-      5: topArrow + 'Aging up to Wonder Age',
+      2: topArrow + '升至古典时代',
+      3: topArrow + '升至英雄时代',
+      4: topArrow + '升至神话时代',
+      5: topArrow + '升至奇观时代',
     },
     // Header after the current row
     after: {
-      1: getBOImageHTML(game + 'age/archaic_age.webp') + 'Archaic Age',
-      2: getBOImageHTML(game + 'age/classical_age.webp') + 'Classical Age',
-      3: getBOImageHTML(game + 'age/heroic_age.webp') + 'Heroic Age',
-      4: getBOImageHTML(game + 'age/mythic_age.webp') + 'Mythic Age',
-      5: getBOImageHTML(game + 'age/wonder_age.webp') + 'Wonder Age',
+      1: getBOImageHTML(game + 'age/archaic_age.webp') + '远古时代',
+      2: getBOImageHTML(game + 'age/classical_age.webp') + '古典时代',
+      3: getBOImageHTML(game + 'age/heroic_age.webp') + '英雄时代',
+      4: getBOImageHTML(game + 'age/mythic_age.webp') + '神话时代',
+      5: getBOImageHTML(game + 'age/wonder_age.webp') + '奇观时代',
     },
   };
   // Header for first line

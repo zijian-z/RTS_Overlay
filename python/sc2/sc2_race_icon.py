@@ -1,9 +1,9 @@
 # SC2 race Icons
 sc2_race_icon = {
-    'Terran': ['TER', 'TerranIcon.webp'],
-    'Protoss': ['PRO', 'ProtossIcon.webp'],
-    'Zerg': ['ZRG', 'ZergIcon.webp'],
-    'Any': ['ANY', 'AnyRaceIcon.webp'],
+    'Terran': ['人类', 'TerranIcon.webp'],
+    'Protoss': ['星灵', 'ProtossIcon.webp'],
+    'Zerg': ['异虫', 'ZergIcon.webp'],
+    'Any': ['任意', 'AnyRaceIcon.webp'],
 }
 
 
